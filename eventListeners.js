@@ -14,6 +14,15 @@ const createPoint = e => {
 const initDrawing = () => {
   drawing = true;
   canvas.style.cursor = "crosshair";
+  currentTask.innerHTML = `Selecione o Ponto ${points.length + 1}`;
+};
+
+const endDrawing = () => {
+  drawing = false;
+  points = [];
+  shape = undefined;
+  canvas.style.cursor = "default";
+  currentTask.innerHTML = `Selecione a ferramenta a ser usada`;
 };
 
 const makeRect = () => {
@@ -40,6 +49,7 @@ canvas.addEventListener("click", e => {
   if (drawing) {
     const newPoint = createPoint(e);
     points.push(newPoint);
+    currentTask.innerHTML = `Selecione o Ponto ${points.length + 1}`;
 
     if (points.length === pointsNeeded) {
       drawing = false;
@@ -48,8 +58,7 @@ canvas.addEventListener("click", e => {
       operation.executeCommand(
         new DrawObjectCommand(canvas, shape, objectsOnCanvas)
       );
-      points = [];
-      shape = undefined;
+      endDrawing();
     }
   }
 });
