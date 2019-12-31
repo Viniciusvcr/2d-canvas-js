@@ -10,8 +10,8 @@ Repositório usado no trabalho de Computação Gráfica - CC UEM 2019
     - [ ] Escala
     - [ ] Clear
 - [ ] Desenhos
-    - [ ] Linha
+    - [x] Linha
     - [ ] Triângulo
-    - [ ] Quadrado
-    - [ ] Circulo
+    - [x] Quadrado
+    - [x] Circulo
 - [ ] Zoom Extend
