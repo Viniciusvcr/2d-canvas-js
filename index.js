@@ -19,6 +19,7 @@ const redoButton = document.getElementById("redoButton");
 const lineButton = document.getElementById("lineButton");
 const rectangleButton = document.getElementById("rectButton");
 const triangleButton = document.getElementById("triangleButton");
+const circleButton = document.getElementById("circleButton");
 
 // Styling
 const style = canvas.style;

@@ -43,6 +43,12 @@ const makeLine = () => {
   shape = new Line(p0, p0, canvasCtx);
 };
 
+const makeCircle = () => {
+  initDrawing();
+  pointsNeeded = 2;
+  shape = new Circle(p0, p0, canvasCtx);
+};
+
 // Canvas EventListeners
 canvas.addEventListener("mousemove", e => writeAxisLabels(e));
 canvas.addEventListener("click", e => {
@@ -90,6 +96,10 @@ lineButton.addEventListener("click", () => {
   makeLine();
 });
 
+circleButton.addEventListener("click", () => {
+  makeCircle();
+});
+
 // Document EventListeners
 document.addEventListener("keydown", event => {
   if (event.ctrlKey && event.key === "L") {
@@ -129,5 +139,11 @@ document.addEventListener("keydown", event => {
 document.addEventListener("keydown", event => {
   if (event.key === "l") {
     makeLine();
+  }
+});
+
+document.addEventListener("keydown", event => {
+  if (event.key === "c") {
+    makeCircle();
   }
 });
