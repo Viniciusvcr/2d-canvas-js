@@ -4,14 +4,24 @@ Repositório usado no trabalho de Computação Gráfica - CC UEM 2019
 
 # TODO
 
-- [ ] Transformações Geométricas
+- [ ] Operações
     - [ ] Translação
     - [ ] Rotação
     - [ ] Escala
-    - [ ] Clear
-- [ ] Desenhos
+    - [x] Clear
+    - [x] Undo
+    - [x] Redo
+    - [ ] Zoom Extent
+    - [ ] Zoom
+        - [ ] Janela
+        - [ ] Aspect Ratio
+- [x] Desenhos
     - [x] Linha
-    - [ ] Triângulo
+    - [x] Triângulo
     - [x] Quadrado
     - [x] Circulo
-- [ ] Zoom Extend
+    - [ ] Locar Eixos
+    - [ ] P. Criação
+- [ ] Seleção de Objetos
+    - [ ] Múltiplos Objetos
+    - [ ] Único Objeto
