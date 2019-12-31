@@ -1,41 +1,48 @@
-class Line extends Shape {
+class Line {
   /**
-   * @param {number} x
-   * @param {number} y
-   * @param {number} radius
+   * @param {Point} p1
+   * @param {Point} p2
+   * @param {Point} radius
    */
-  constructor(x, y, endX, endY, canvasCtx) {
-    super(x, y, canvasCtx);
-    this._endX = endX;
-    this._endY = endY;
+  constructor(p1, p2, canvasCtx) {
+    this._p1 = p1;
+    this._p2 = p2;
+    this._ctx = canvasCtx;
   }
 
   /**
-   * @returns {number}
+   * @returns {Point}
    */
-  get endX() {
-    return this._endX;
+  get p1() {
+    return this._p1;
   }
 
   /**
-   * @param {number} endX
+   * @param {Point} p1
    */
-  set endX(endX) {
-    this._endX = endX;
+  set p1(p1) {
+    this._p1 = p1;
   }
 
   /**
-   * @returns {number}
+   * @returns {Point}
    */
-  get endY() {
-    return this._endY;
+  get p2() {
+    return this._p2;
   }
 
   /**
-   * @param {number} endY
+   * @param {Point} p2
    */
-  set endY(endY) {
-    this._endY = endY;
+  set p2(p2) {
+    this._p2 = p2;
+  }
+
+  /**
+   * @returns {any}
+   */
+  get ctx() {
+    return this._ctx;
   }
 
   /**
@@ -44,8 +51,8 @@ class Line extends Shape {
    */
   draw = () => {
     this.ctx.beginPath();
-    this.ctx.moveTo(this.x, this.y);
-    this.ctx.lineTo(this.endX, this.endY);
+    this.ctx.moveTo(this.p1.x, this.p1.y);
+    this.ctx.lineTo(this.p2.x, this.p2.y);
     this.ctx.stroke();
   };
 }
