@@ -1,3 +1,4 @@
+// FIXME Forever Selected
 const makeRect = () => {
   let clicks = 0;
   let points = [new Point(0, 0), new Point(0, 0)];

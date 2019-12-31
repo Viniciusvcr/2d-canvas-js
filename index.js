@@ -10,6 +10,14 @@ const parentStyle = canvas.parentElement.style;
 parentStyle.textAlign = "center";
 parentStyle.width = "100%";
 
+canvas.addEventListener("mousemove", e => {
+  const xAxis = document.getElementById("xAxis");
+  const yAxis = document.getElementById("yAxis");
+
+  xAxis.innerHTML = `Eixo X: ${e.offsetX}`;
+  yAxis.innerHTML = `Eixo X: ${e.offsetY}`;
+});
+
 const canvasCtx = canvas.getContext("2d");
 
 const objectsOnCanvas = [
