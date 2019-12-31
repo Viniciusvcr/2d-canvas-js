@@ -36,6 +36,7 @@ const clearButton = document
       new ClearCommand(canvas, canvasCtx, objectsOnCanvas)
     );
   });
+
 const undoButton = document
   .getElementById("undoButton")
   .addEventListener("click", () => {
@@ -58,5 +59,14 @@ const redoBind = document.addEventListener("keydown", event => {
     (event.ctrlKey && event.key === "y")
   ) {
     operation.redoCommand();
+  }
+});
+
+const rectangleButton = document
+  .getElementById("rectButton")
+  .addEventListener("click", makeRect);
+const rectangleBind = document.addEventListener("keydown", event => {
+  if (event.key === "r") {
+    makeRect();
   }
 });
