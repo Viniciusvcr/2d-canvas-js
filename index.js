@@ -36,6 +36,13 @@ const clearButton = document
       new ClearCommand(canvas, canvasCtx, objectsOnCanvas)
     );
   });
+const clearBind = document.addEventListener("keydown", event => {
+  if (event.ctrlKey && event.key === "L") {
+    operation.executeCommand(
+      new ClearCommand(canvas, canvasCtx, objectsOnCanvas)
+    );
+  }
+});
 
 const undoButton = document
   .getElementById("undoButton")
