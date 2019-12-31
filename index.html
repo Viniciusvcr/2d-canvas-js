@@ -10,18 +10,29 @@
       border: 1px solid black;
     }
   </style>
+  <script src="./shapes/Point.js"></script>
+  <script src="./shapes/Shape.js"></script>
+  <script src="./shapes/Circle.js"></script>
+  <script src="./shapes/Rectangle.js"></script>
+  <script src="./shapes/Line.js"></script>
+  <script src="./shapes/Triangle.js"></script>
+  <script src="./commands/Operation.js"></script>
+  <script src="./commands/ClearCommand.js"></script>
 </head>
 <body>
   <div>
-    <canvas id="canvas"></canvas>
-    <script src="./shapes/Point.js"></script>
-    <script src="./shapes/Shape.js"></script>
-    <script src="./shapes/Circle.js"></script>
-    <script src="./shapes/Rectangle.js"></script>
-    <script src="./shapes/Line.js"></script>
-    <script src="./shapes/Triangle.js"></script>
-    <script src="./index.js"></script>
-  </div>
+    <center>
+      <div>
+        <button type="button" id='clearButton'>Clear</button>
+        <button type="button" onclick=>Undo</button>
+        <button type="button" onclick=>Redo</button>
+      </div>
+      <div>
+        <canvas id="canvas"></canvas>
 
+        <script src="./index.js"></script>
+      </div>
+    </center>
+  </div>
 </body>
 </html>

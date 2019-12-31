@@ -27,3 +27,10 @@ const shapes = [
 for (const shape of shapes) {
   shape.draw();
 }
+
+const operation = new Operation();
+const clearButton = document
+  .getElementById("clearButton")
+  .addEventListener("click", () => {
+    operation.executeCommand(new ClearCommand(canvas, canvasCtx));
+  });
