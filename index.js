@@ -16,6 +16,7 @@ const clearButton = document.getElementById("clearButton");
 const undoButton = document.getElementById("undoButton");
 const redoButton = document.getElementById("redoButton");
 const rectangleButton = document.getElementById("rectButton");
+const triangleButton = document.getElementById("triangleButton");
 
 // Styling
 const style = canvas.style;

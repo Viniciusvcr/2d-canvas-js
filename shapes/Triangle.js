@@ -12,6 +12,16 @@ class Triangle extends Shape {
   }
 
   /**
+   *
+   * @param {Array} arrayOfPoints
+   */
+  setPoints(arrayOfPoints) {
+    this.p1 = arrayOfPoints[0];
+    this.p2 = arrayOfPoints[1];
+    this.p3 = arrayOfPoints[2];
+  }
+
+  /**
    * @returns {Point}
    */
   get p1() {

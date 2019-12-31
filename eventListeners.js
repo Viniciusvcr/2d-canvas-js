@@ -11,11 +11,21 @@ const createPoint = e => {
   return new Point(e.offsetX, e.offsetY);
 };
 
-const makeRect = () => {
+const initDrawing = () => {
   drawing = true;
   canvas.style.cursor = "crosshair";
+};
+
+const makeRect = () => {
+  initDrawing();
   pointsNeeded = 2;
   shape = new Rectangle(p0, p0, canvasCtx);
+};
+
+const makeTriangle = () => {
+  initDrawing();
+  pointsNeeded = 3;
+  shape = new Triangle(p0, p0, p0, canvasCtx);
 };
 
 // Canvas EventListeners
@@ -57,6 +67,10 @@ rectangleButton.addEventListener("click", () => {
   makeRect();
 });
 
+triangleButton.addEventListener("click", () => {
+  makeTriangle();
+});
+
 // Document EventListeners
 document.addEventListener("keydown", event => {
   if (event.ctrlKey && event.key === "L") {
@@ -84,5 +98,11 @@ document.addEventListener("keydown", event => {
 document.addEventListener("keydown", event => {
   if (event.key === "r") {
     makeRect();
+  }
+});
+
+document.addEventListener("keydown", event => {
+  if (event.key === "t") {
+    makeTriangle();
   }
 });
