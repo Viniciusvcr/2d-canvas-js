@@ -4,7 +4,7 @@ const writeAxisLabels = e => {
   const yAxis = document.getElementById("yAxis");
 
   xAxis.innerHTML = `Eixo X: ${e.offsetX}`;
-  yAxis.innerHTML = `Eixo X: ${e.offsetY}`;
+  yAxis.innerHTML = `Eixo Y: ${e.offsetY}`;
 };
 
 const createPoint = e => {
