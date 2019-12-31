@@ -3,6 +3,13 @@ const canvas = document.getElementById("canvas");
 const canvasCtx = canvas.getContext("2d");
 const objectsOnCanvas = [];
 const operation = new Operation();
+const p0 = new Point(0, 0);
+
+// Variables
+let drawing = false;
+let pointsNeeded = 0;
+let shape = undefined;
+let points = [];
 
 // Buttons
 const clearButton = document.getElementById("clearButton");

@@ -7,32 +7,36 @@ const writeAxisLabels = e => {
   yAxis.innerHTML = `Eixo X: ${e.offsetY}`;
 };
 
-// FIXME Forever Selected
+const createPoint = e => {
+  return new Point(e.offsetX, e.offsetY);
+};
+
 const makeRect = () => {
-  let clicks = 0;
-  let points = [new Point(0, 0), new Point(0, 0)];
-
+  drawing = true;
   canvas.style.cursor = "crosshair";
-  canvas.addEventListener("click", e => {
-    if (clicks < 2) {
-      points[clicks].x = e.offsetX;
-      points[clicks].y = e.offsetY;
-      clicks += 1;
-
-      if (clicks === 2) {
-        canvas.style.cursor = "default";
-        clicks = 0;
-        const newRectangle = new Rectangle(points[0], points[1], canvasCtx);
-        operation.executeCommand(
-          new DrawObjectCommand(canvas, newRectangle, objectsOnCanvas)
-        );
-      }
-    }
-  });
+  pointsNeeded = 2;
+  shape = new Rectangle(p0, p0, canvasCtx);
 };
 
 // Canvas EventListeners
 canvas.addEventListener("mousemove", e => writeAxisLabels(e));
+canvas.addEventListener("click", e => {
+  if (drawing) {
+    const newPoint = createPoint(e);
+    points.push(newPoint);
+
+    if (points.length === pointsNeeded) {
+      drawing = false;
+      canvas.style.cursor = "default";
+      shape.setPoints(points);
+      operation.executeCommand(
+        new DrawObjectCommand(canvas, shape, objectsOnCanvas)
+      );
+      points = [];
+      shape = undefined;
+    }
+  }
+});
 
 // Buttons EventListeners
 clearButton.addEventListener("click", () => {
@@ -49,7 +53,9 @@ redoButton.addEventListener("click", () => {
   operation.redoCommand();
 });
 
-rectangleButton.addEventListener("click", makeRect);
+rectangleButton.addEventListener("click", () => {
+  makeRect();
+});
 
 // Document EventListeners
 document.addEventListener("keydown", event => {

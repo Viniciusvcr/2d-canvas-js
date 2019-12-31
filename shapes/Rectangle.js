@@ -10,6 +10,15 @@ class Rectangle extends Shape {
   }
 
   /**
+   * @override
+   * @param {Array} arrayOfPoints
+   */
+  setPoints(arrayOfPoints) {
+    this.p1 = arrayOfPoints[0];
+    this.p2 = arrayOfPoints[1];
+  }
+
+  /**
    * @returns {Point}
    */
   get p1() {
@@ -48,8 +57,6 @@ class Rectangle extends Shape {
     this.ctx.lineTo(this.p2.x, this.p2.y);
     this.ctx.lineTo(this.p2.x, this.p1.y);
     this.ctx.lineTo(this.p1.x, this.p1.y);
-
-    // this.ctx.rect(this.x, this.y, this.width, this.height);
     this.ctx.stroke();
   };
 }
