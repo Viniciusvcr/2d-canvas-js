@@ -1,11 +1,10 @@
 class Shape {
   /**
-   * @param {number} x
-   * @param {number} y
+   * @param {Point} point
    */
-  constructor(x, y, ctx) {
-    this._x = x;
-    this._y = y;
+  constructor(point, ctx) {
+    this._x = point.x;
+    this._y = point.y;
     this._ctx = ctx;
   }
 

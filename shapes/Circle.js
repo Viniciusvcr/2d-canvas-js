@@ -1,11 +1,10 @@
 class Circle extends Shape {
   /**
-   * @param {number} x
-   * @param {number} y
+   * @param {Point} p1
    * @param {number} radius
    */
-  constructor(x, y, radius, canvasCtx) {
-    super(x, y, canvasCtx);
+  constructor(p1, radius, canvasCtx) {
+    super(p1, canvasCtx);
     this._radius = radius;
   }
 

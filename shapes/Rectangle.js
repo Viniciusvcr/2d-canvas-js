@@ -1,43 +1,40 @@
 class Rectangle extends Shape {
   /**
-   * @param {number} x
-   * @param {number} y
-   * @param {number} side
+   * @param {Point} p1
+   * @param {Point} p2
    */
   constructor(p1, p2, canvasCtx) {
-    super(p1.x, p1.y, canvasCtx);
-    this._width = p2.x - p1.x;
-    this._height = p2.y - p1.y;
-    this.p1 = p1;
-    this.p2 = p2;
+    super(p1, canvasCtx);
+    this._p1 = p1;
+    this._p2 = p2;
   }
 
   /**
-   * @returns {number}
+   * @returns {Point}
    */
-  get width() {
-    return this._width;
+  get p1() {
+    return this._p1;
   }
 
   /**
-   * @param {number} width
+   * @param {Point} p1
    */
-  set width(width) {
-    this._width = width;
+  set p1(p1) {
+    this._p1 = p1;
   }
 
   /**
-   * @returns {number}
+   * @returns {Point}
    */
-  get height() {
-    return this._height;
+  get p2() {
+    return this._p2;
   }
 
   /**
-   * @param {number} height
+   * @param {Point} p2
    */
-  set height(height) {
-    this._height = height;
+  set p2(p2) {
+    this._p2 = p2;
   }
 
   /**

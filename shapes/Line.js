@@ -2,7 +2,6 @@ class Line {
   /**
    * @param {Point} p1
    * @param {Point} p2
-   * @param {Point} radius
    */
   constructor(p1, p2, canvasCtx) {
     this._p1 = p1;
