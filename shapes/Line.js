@@ -10,6 +10,14 @@ class Line {
   }
 
   /**
+   * @param {Array} arrayOfPoints
+   */
+  setPoints(arrayOfPoints) {
+    this.p1 = arrayOfPoints[0];
+    this.p2 = arrayOfPoints[1];
+  }
+
+  /**
    * @returns {Point}
    */
   get p1() {

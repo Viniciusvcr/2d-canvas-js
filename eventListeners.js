@@ -28,6 +28,12 @@ const makeTriangle = () => {
   shape = new Triangle(p0, p0, p0, canvasCtx);
 };
 
+const makeLine = () => {
+  initDrawing();
+  pointsNeeded = 2;
+  shape = new Line(p0, p0, canvasCtx);
+};
+
 // Canvas EventListeners
 canvas.addEventListener("mousemove", e => writeAxisLabels(e));
 canvas.addEventListener("click", e => {
@@ -71,6 +77,10 @@ triangleButton.addEventListener("click", () => {
   makeTriangle();
 });
 
+lineButton.addEventListener("click", () => {
+  makeLine();
+});
+
 // Document EventListeners
 document.addEventListener("keydown", event => {
   if (event.ctrlKey && event.key === "L") {
@@ -104,5 +114,11 @@ document.addEventListener("keydown", event => {
 document.addEventListener("keydown", event => {
   if (event.key === "t") {
     makeTriangle();
+  }
+});
+
+document.addEventListener("keydown", event => {
+  if (event.key === "l") {
+    makeLine();
   }
 });

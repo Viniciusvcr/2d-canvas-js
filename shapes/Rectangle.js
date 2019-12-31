@@ -10,7 +10,6 @@ class Rectangle extends Shape {
   }
 
   /**
-   * @override
    * @param {Array} arrayOfPoints
    */
   setPoints(arrayOfPoints) {

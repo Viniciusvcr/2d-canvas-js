@@ -15,6 +15,7 @@ let points = [];
 const clearButton = document.getElementById("clearButton");
 const undoButton = document.getElementById("undoButton");
 const redoButton = document.getElementById("redoButton");
+const lineButton = document.getElementById("lineButton");
 const rectangleButton = document.getElementById("rectButton");
 const triangleButton = document.getElementById("triangleButton");
 
