@@ -14,7 +14,7 @@ const canvasCtx = canvas.getContext("2d");
 
 const shapes = [
   new Circle(200, 200, 30, canvasCtx),
-  new Rectangle(400, 400, 30, 70, canvasCtx),
+  new Rectangle(new Point(500, 100), new Point(700, 300), canvasCtx),
   new Line(50, 300, 300, 100, canvasCtx),
   new Triangle(
     new Point(100, 500),

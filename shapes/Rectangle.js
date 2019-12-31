@@ -4,10 +4,12 @@ class Rectangle extends Shape {
    * @param {number} y
    * @param {number} side
    */
-  constructor(x, y, width, height, canvasCtx) {
-    super(x, y, canvasCtx);
-    this._width = width;
-    this._height = height;
+  constructor(p1, p2, canvasCtx) {
+    super(p1.x, p1.y, canvasCtx);
+    this._width = p2.x - p1.x;
+    this._height = p2.y - p1.y;
+    this.p1 = p1;
+    this.p2 = p2;
   }
 
   /**
@@ -44,7 +46,13 @@ class Rectangle extends Shape {
    */
   draw = () => {
     this.ctx.beginPath();
-    this.ctx.rect(this.x, this.y, this.width, this.height);
+    this.ctx.moveTo(this.p1.x, this.p1.y);
+    this.ctx.lineTo(this.p1.x, this.p2.y);
+    this.ctx.lineTo(this.p2.x, this.p2.y);
+    this.ctx.lineTo(this.p2.x, this.p1.y);
+    this.ctx.lineTo(this.p1.x, this.p1.y);
+
+    // this.ctx.rect(this.x, this.y, this.width, this.height);
     this.ctx.stroke();
   };
 }
