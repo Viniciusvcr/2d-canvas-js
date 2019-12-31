@@ -41,8 +41,22 @@ const undoButton = document
   .addEventListener("click", () => {
     operation.undoCommand();
   });
+const undoBind = document.addEventListener("keydown", event => {
+  if (event.ctrlKey && event.key === "z") {
+    operation.undoCommand();
+  }
+});
+
 const redoButton = document
   .getElementById("redoButton")
   .addEventListener("click", () => {
     operation.redoCommand();
   });
+const redoBind = document.addEventListener("keydown", event => {
+  if (
+    (event.ctrlKey && event.key === "Z") ||
+    (event.ctrlKey && event.key === "y")
+  ) {
+    operation.redoCommand();
+  }
+});
