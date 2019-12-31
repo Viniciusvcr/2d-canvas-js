@@ -12,7 +12,7 @@ parentStyle.width = "100%";
 
 const canvasCtx = canvas.getContext("2d");
 
-const shapes = [
+const objectsOnCanvas = [
   new Circle(new Point(200, 200), 30, canvasCtx),
   new Rectangle(new Point(500, 100), new Point(700, 300), canvasCtx),
   new Line(new Point(50, 300), new Point(300, 100), canvasCtx),
@@ -24,7 +24,7 @@ const shapes = [
   )
 ];
 
-for (const shape of shapes) {
+for (const shape of objectsOnCanvas) {
   shape.draw();
 }
 
@@ -32,5 +32,17 @@ const operation = new Operation();
 const clearButton = document
   .getElementById("clearButton")
   .addEventListener("click", () => {
-    operation.executeCommand(new ClearCommand(canvas, canvasCtx));
+    operation.executeCommand(
+      new ClearCommand(canvas, canvasCtx, objectsOnCanvas)
+    );
+  });
+const undoButton = document
+  .getElementById("undoButton")
+  .addEventListener("click", () => {
+    operation.undoCommand();
+  });
+const redoButton = document
+  .getElementById("redoButton")
+  .addEventListener("click", () => {
+    operation.redoCommand();
   });
