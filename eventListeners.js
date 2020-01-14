@@ -100,50 +100,52 @@ circleButton.addEventListener("click", () => {
   makeCircle();
 });
 
-// Document EventListeners
-document.addEventListener("keydown", event => {
-  if (event.ctrlKey && event.key === "L") {
+// Accepted Keyboard Shortcuts of Tools (Ctrl key has to be pressed)
+const acceptedToolKeys = {
+  L() {
     operation.executeCommand(
       new ClearCommand(canvas, canvasCtx, objectsOnCanvas)
     );
-  }
-});
+  },
 
-document.addEventListener("keydown", event => {
-  if (event.ctrlKey && event.key === "z") {
+  z() {
     operation.undoCommand();
-  }
-});
+  },
 
-document.addEventListener("keydown", event => {
-  if (
-    (event.ctrlKey && event.key === "Z") ||
-    (event.ctrlKey && event.key === "y")
-  ) {
+  Z() {
+    operation.redoCommand();
+  },
+
+  y() {
     operation.redoCommand();
   }
-});
+};
 
-document.addEventListener("keydown", event => {
-  if (event.key === "r") {
+// Accepted Keyboard Shortcuts of Shapes
+const acceptedShapeKeys = {
+  r() {
     makeRect();
-  }
-});
+  },
 
-document.addEventListener("keydown", event => {
-  if (event.key === "t") {
+  t() {
     makeTriangle();
-  }
-});
+  },
 
-document.addEventListener("keydown", event => {
-  if (event.key === "l") {
+  l() {
     makeLine();
-  }
-});
+  },
 
-document.addEventListener("keydown", event => {
-  if (event.key === "c") {
+  c() {
     makeCircle();
   }
+};
+
+// Document EventListener
+document.addEventListener("keydown", event => {
+  const keyPressed = event.key;
+  const action = event.ctrlKey
+    ? acceptedToolKeys[keyPressed]
+    : acceptedShapeKeys[keyPressed];
+
+  if (action) action();
 });
