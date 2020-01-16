@@ -4,19 +4,8 @@ Repositório usado no trabalho de Computação Gráfica - CC UEM 2019
 
 # TODO
 
-- [ ] Operações
-    - [ ] Translação
-    - [ ] Rotação
-    - [ ] Escala
-    - [x] Clear
-    - [x] Undo
-    - [x] Redo
-    - [ ] Zoom Extent
-    - [ ] Zoom
-        - [ ] Janela
-        - [ ] Aspect Ratio
 - [x] Desenhos
-    - [x] Linha
+    - [x] Reta
     - [x] Triângulo
     - [x] Quadrado
     - [x] Circulo
@@ -25,21 +14,42 @@ Repositório usado no trabalho de Computação Gráfica - CC UEM 2019
 - [x] Seleção de Objetos
     - [x] Múltiplos Objetos
     - [x] Único Objeto
-- [ ] Linha de Comando
-    - [ ] Translação
-    - [ ] Rotação
-    - [ ] Escala
+- [ ] Operações
     - [x] Clear
-    - [x] Undo
-    - [x] Redo
-    - [ ] Zoom Extent
+    - [ ] Translação
+    - [ ] Escala
+    - [ ] Rotação
     - [ ] Zoom
         - [ ] Janela
         - [ ] Aspect Ratio
-    - [x] Linha
-    - [x] Triângulo
-    - [x] Quadrado
-    - [x] Circulo
-    - [ ] Locar Eixos
-    - [ ] P. Criação
+    - [ ] Zoom Extent
+        - [ ] Centralizar
+        - [ ] Aspect Ratio
+- [ ] IHC
+    - [ ] Feedback
+    - [ ] Cursor
+    - [ ] C. Cursor
+    - [ ] Dest. Sel
+    - [ ] Ajuda
+    - [x] Undo
+    - [x] Redo
+    - [ ] Linha de Comando
+        - [ ] Translação
+        - [ ] Escala
+        - [ ] Rotação
+        - [ ] Zoom
+            - [ ] Janela
+            - [ ] Aspect Ratio
+        - [ ] Zoom Extent
+            - [ ] Centralizar
+            - [ ] Aspect Ratio
+        - [x] Clear
+        - [x] Undo
+        - [x] Redo
+        - [x] Reta
+        - [x] Triângulo
+        - [x] Quadrado
+        - [x] Circulo
+        - [ ] Locar Eixos
+        - [ ] P. Criação
 
