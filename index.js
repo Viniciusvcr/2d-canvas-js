@@ -2,15 +2,21 @@
 const canvas = document.getElementById("canvas");
 const currentTask = document.getElementById("currentTask");
 const canvasCtx = canvas.getContext("2d");
-const objectsOnCanvas = [];
+const state = {
+  onCanvas: {},
+  selected: {}
+};
 const operation = new Operation();
 const p0 = new Point(0, 0);
+const SHAPE_COLOR = "black";
+const SELECTED_COLOR = "blue";
 
 // Variables
 let drawing = false;
 let pointsNeeded = 0;
 let shape = undefined;
 let points = [];
+let ID = 0;
 
 // Buttons
 const clearButton = document.getElementById("clearButton");
@@ -30,3 +36,22 @@ style.marginLeft = "auto";
 style.marginRight = "auto";
 parentStyle.textAlign = "center";
 parentStyle.width = "100%";
+
+function render() {
+  const onCanvasValues = Object.values(state.onCanvas);
+
+  canvasCtx.clearRect(0, 0, canvas.width, canvas.height);
+  for (const obj of onCanvasValues) {
+    if (obj.selected) {
+      canvasCtx.strokeStyle = SELECTED_COLOR;
+    } else {
+      canvasCtx.strokeStyle = SHAPE_COLOR;
+    }
+    obj.shape.draw();
+  }
+
+  requestAnimationFrame(render);
+  // TODO construir tabela
+}
+
+render();

@@ -61,9 +61,7 @@ canvas.addEventListener("click", e => {
       drawing = false;
       canvas.style.cursor = "default";
       shape.setPoints(points);
-      operation.executeCommand(
-        new DrawObjectCommand(canvas, shape, objectsOnCanvas)
-      );
+      operation.executeCommand(new DrawObjectCommand(shape));
       endDrawing();
     }
   }
@@ -71,9 +69,7 @@ canvas.addEventListener("click", e => {
 
 // Buttons EventListeners
 clearButton.addEventListener("click", () => {
-  operation.executeCommand(
-    new ClearCommand(canvas, canvasCtx, objectsOnCanvas)
-  );
+  operation.executeCommand(new ClearCommand(state));
 });
 
 undoButton.addEventListener("click", () => {
@@ -103,9 +99,7 @@ circleButton.addEventListener("click", () => {
 // Accepted Keyboard Shortcuts of Tools (Ctrl key has to be pressed)
 const acceptedToolKeys = {
   L() {
-    operation.executeCommand(
-      new ClearCommand(canvas, canvasCtx, objectsOnCanvas)
-    );
+    operation.executeCommand(new ClearCommand(state));
   },
 
   z() {

@@ -1,9 +1,10 @@
-class Line {
+class Line extends Shape {
   /**
    * @param {Point} p1
    * @param {Point} p2
    */
   constructor(p1, p2, canvasCtx) {
+    super(p1, canvasCtx);
     this._p1 = p1;
     this._p2 = p2;
     this._ctx = canvasCtx;

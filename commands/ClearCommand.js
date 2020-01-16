@@ -1,17 +1,17 @@
 class ClearCommand {
-  constructor(canvas, ctx, objectsOnCanvas) {
-    this.canvas = canvas;
-    this.ctx = ctx;
-    this.objectsOnCanvas = objectsOnCanvas;
+  constructor({ onCanvas, selected }) {
+    this.previouslyOnCanvas = onCanvas;
+    this.previouslySelected = selected;
   }
 
   execute() {
-    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    state.onCanvas = {};
+    state.selected = {};
   }
 
+  // TODO
   undo() {
-    for (const shape of this.objectsOnCanvas) {
-      shape.draw();
-    }
+    state.onCanvas = this.previouslyOnCanvas;
+    state.selected = this.previouslySelected;
   }
 }

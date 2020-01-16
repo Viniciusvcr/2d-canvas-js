@@ -1,23 +1,14 @@
 class DrawObjectCommand {
-  constructor(canvas, object, shapes) {
-    this.canvas = canvas;
+  constructor(object) {
     this.object = object;
-    this.shapesBeforeDraw = [...shapes];
-    shapes.push(object);
+    this.objId = ++ID;
   }
 
   execute() {
-    this.object.draw();
+    state.onCanvas[this.objId] = { shape: this.object, selected: false };
   }
 
   undo() {
-    new ClearCommand(
-      this.canvas,
-      this.canvas.getContext("2d"),
-      this.shapesBeforeDraw
-    ).execute();
-    for (const shape of this.shapesBeforeDraw) {
-      shape.draw();
-    }
+    delete state.onCanvas[this.objId];
   }
 }
