@@ -64,7 +64,11 @@ const endTransformation = () => {
 };
 
 const translate = () => {
-  initTransformation();
+  if (Object.keys(state.selected).length > 0) {
+    initTransformation();
+  } else {
+    alert("Não há formas selecionadas!");
+  }
   transformation = "Translation";
 };
 
@@ -133,7 +137,7 @@ translationButton.addEventListener("click", () => {
 });
 
 // Accepted Keyboard Shortcuts of Tools (Ctrl key has to be pressed)
-const acceptedToolKeys = {
+const acceptedCtrlKeys = {
   L() {
     operation.executeCommand(new ClearCommand(state));
   },
@@ -152,7 +156,7 @@ const acceptedToolKeys = {
 };
 
 // Accepted Keyboard Shortcuts of Shapes
-const acceptedShapeKeys = {
+const acceptedKeys = {
   r() {
     makeRect();
   },
@@ -167,6 +171,10 @@ const acceptedShapeKeys = {
 
   c() {
     makeCircle();
+  },
+
+  T() {
+    translate();
   }
 };
 
@@ -174,8 +182,8 @@ const acceptedShapeKeys = {
 document.addEventListener("keydown", event => {
   const keyPressed = event.key;
   const action = event.ctrlKey
-    ? acceptedToolKeys[keyPressed]
-    : acceptedShapeKeys[keyPressed];
+    ? acceptedCtrlKeys[keyPressed]
+    : acceptedKeys[keyPressed];
 
   if (action) action();
 });
