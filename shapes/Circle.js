@@ -4,7 +4,7 @@ class Circle extends Shape {
    * @param {number} radius
    */
   constructor(p1, p2, canvasCtx) {
-    super(p1, canvasCtx);
+    super([p1, p2], canvasCtx);
     this._p1 = p1;
     this._p2 = p2;
     this._radius = Math.sqrt(
@@ -20,6 +20,7 @@ class Circle extends Shape {
     this.p1 = arrayOfPoints[0];
     this.p2 = arrayOfPoints[1];
     this.radius = [this.p1, this.p2];
+    this.points = arrayOfPoints;
   }
 
   /**

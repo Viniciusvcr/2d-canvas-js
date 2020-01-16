@@ -5,7 +5,7 @@ class Triangle extends Shape {
    * @param {Point} p3
    */
   constructor(p1, p2, p3, canvasCtx) {
-    super(p1, canvasCtx);
+    super([p1, p2, p3], canvasCtx);
     this._p1 = p1;
     this._p2 = p2;
     this._p3 = p3;
@@ -20,6 +20,7 @@ class Triangle extends Shape {
     this.p1 = arrayOfPoints[0];
     this.p2 = arrayOfPoints[1];
     this.p3 = arrayOfPoints[2];
+    this.points = arrayOfPoints;
   }
 
   /**

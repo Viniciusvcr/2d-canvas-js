@@ -10,7 +10,7 @@ Repositório usado no trabalho de Computação Gráfica - CC UEM 2019
     - [x] Quadrado
     - [x] Circulo
     - [ ] Locar Eixos
-    - [ ] P. Criação
+    - [x] P. Criação
 - [x] Seleção de Objetos
     - [x] Múltiplos Objetos
     - [x] Único Objeto
@@ -26,10 +26,10 @@ Repositório usado no trabalho de Computação Gráfica - CC UEM 2019
         - [ ] Centralizar
         - [ ] Aspect Ratio
 - [ ] IHC
-    - [ ] Feedback
-    - [ ] Cursor
-    - [ ] C. Cursor
-    - [ ] Dest. Sel
+    - [x] Feedback
+    - [x] Cursor
+    - [x] C. Cursor
+    - [x] Dest. Sel
     - [ ] Ajuda
     - [x] Undo
     - [x] Redo
@@ -50,6 +50,3 @@ Repositório usado no trabalho de Computação Gráfica - CC UEM 2019
         - [x] Triângulo
         - [x] Quadrado
         - [x] Circulo
-        - [ ] Locar Eixos
-        - [ ] P. Criação
-

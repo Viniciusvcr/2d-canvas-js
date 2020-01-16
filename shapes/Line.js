@@ -4,7 +4,7 @@ class Line extends Shape {
    * @param {Point} p2
    */
   constructor(p1, p2, canvasCtx) {
-    super(p1, canvasCtx);
+    super([p1, p2], canvasCtx);
     this._p1 = p1;
     this._p2 = p2;
     this._ctx = canvasCtx;
@@ -17,6 +17,7 @@ class Line extends Shape {
   setPoints(arrayOfPoints) {
     this.p1 = arrayOfPoints[0];
     this.p2 = arrayOfPoints[1];
+    this.points = arrayOfPoints;
   }
 
   /**

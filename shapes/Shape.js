@@ -1,39 +1,24 @@
 class Shape {
   /**
-   * @param {Point} point
+   * @param {Array} point
    */
-  constructor(point, ctx) {
-    this._x = point.x;
-    this._y = point.y;
+  constructor(points, ctx) {
+    this._points = points;
     this._ctx = ctx;
   }
 
   /**
-   * @param {number} x
+   * @param {Array} points
    */
-  set x(x) {
-    this._x = x;
+  set points(points) {
+    this._points = points;
   }
 
   /**
-   * @returns {number}
+   * @returns {Array}
    */
-  get x() {
-    return this._x;
-  }
-
-  /**
-   * @param {number} x
-   */
-  set y(y) {
-    this._y = y;
-  }
-
-  /**
-   * @returns {number}
-   */
-  get y() {
-    return this._y;
+  get points() {
+    return this._points;
   }
 
   set ctx(ctx) {

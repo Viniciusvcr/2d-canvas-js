@@ -9,7 +9,6 @@ class ClearCommand {
     state.selected = {};
   }
 
-  // TODO
   undo() {
     state.onCanvas = this.previouslyOnCanvas;
     state.selected = this.previouslySelected;
