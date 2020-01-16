@@ -5,11 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>2D Canvas</title>
-  <style>
-    canvas {
-      border: 1px solid black;
-    }
-  </style>
+  <link rel="stylesheet" href="index.css">
   <script src="./shapes/Point.js"></script>
   <script src="./shapes/Shape.js"></script>
   <script src="./shapes/Circle.js"></script>
@@ -19,35 +15,52 @@
   <script src="./commands/Operation.js"></script>
   <script src="./commands/ClearCommand.js"></script>
   <script src="./commands/DrawObjectCommand.js"></script>
+  <script src="./commands/SelectCommand.js"></script>
 </head>
 <body>
   <div>
-    <center>
-      <div>
-        <button type="button" id='clearButton'>Clear (Ctrl + L)</button>
-        <button type="button" id='undoButton'>Undo (Ctrl + z)</button>
-        <button type="button" id='redoButton'>Redo (Ctrl + y)</button>
-        <button type="button" id='lineButton'>Linha (l)</button>
-        <button type="button" id='rectButton'>Retângulo (r)</button>
-        <button type="button" id='triangleButton'>Triângulo (t)</button>
-        <button type="button" id='circleButton'>Círculo (c)</button>
-      </div>
-      <div style="padding-top: 8px;">
-        <center>
-          <canvas id="canvas"></canvas>
+    <div style="width: 100%; display: table;">
+      <div style="display: table-row">
+        <div style="text-align:center; width: 500px; display: table-cell;">
+          <div style="margin: auto auto auto 0">
+            <div style="text-align:center; padding-bottom: 8px;">
+              <div style="padding-bottom: 8px;">
+                <button type="button" id='clearButton'>Clear (Ctrl + L)</button>
+                <button type="button" id='undoButton'>Undo (Ctrl + z)</button>
+                <button type="button" id='redoButton'>Redo (Ctrl + y)</button>
+              </div>
+              <div>
+                <button type="button" id='lineButton'>Linha (l)</button>
+                <button type="button" id='rectButton'>Retângulo (r)</button>
+                <button type="button" id='triangleButton'>Triângulo (t)</button>
+                <button type="button" id='circleButton'>Círculo (c)</button>
+              </div>
+            </div>
+          </div>
+          <div style="margin: auto 0 auto auto";>
+            <canvas style="margin: auto;" id="canvas"></canvas>
+          </div>
           <div>
             <label id="currentTask">Selecione a ferramenta a ser usada</label>
           </div>
-        </center>
-        <script src="./index.js"></script>
-        <script src="./eventListeners.js"></script>
+          <div style="padding-right: 900px;">
+            <label id="xAxis">Eixo X: 0</label>
+            <br>
+            <label id="yAxis">Eixo Y: 0</label>
+          </div>
+        </div>
+        <div style="text-align:center; display: table-cell;">
+          <table style="margin: auto; width: 250px;" id='object-table'>
+            <tr>
+              <th>Objetos na tela</th>
+            </tr>
+          </table>
+        </div>
       </div>
-      <div style="padding-right: 900px;">
-        <label id="xAxis">Eixo X: 0</label>
-        <br>
-        <label id="yAxis">Eixo Y: 0</label>
-      </div>
-    </center>
+    </div>
+    <script src="./table.js"></script>
+    <script src="./index.js"></script>
+    <script src="./eventListeners.js"></script>
   </div>
 </body>
 </html>

@@ -9,6 +9,7 @@ class Triangle extends Shape {
     this._p1 = p1;
     this._p2 = p2;
     this._p3 = p3;
+    this._type = "Triângulo";
   }
 
   /**
@@ -19,6 +20,13 @@ class Triangle extends Shape {
     this.p1 = arrayOfPoints[0];
     this.p2 = arrayOfPoints[1];
     this.p3 = arrayOfPoints[2];
+  }
+
+  /**
+   * @returns {String}
+   */
+  get type() {
+    return this._type;
   }
 
   /**

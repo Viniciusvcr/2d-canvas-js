@@ -10,6 +10,7 @@ class Circle extends Shape {
     this._radius = Math.sqrt(
       Math.pow(p2.x - p1.x, 2) + Math.pow(p2.y - p1.y, 2)
     );
+    this._type = "Círculo";
   }
 
   /**
@@ -19,6 +20,13 @@ class Circle extends Shape {
     this.p1 = arrayOfPoints[0];
     this.p2 = arrayOfPoints[1];
     this.radius = [this.p1, this.p2];
+  }
+
+  /**
+   * @returns {String}
+   */
+  get type() {
+    return this._type;
   }
 
   /**

@@ -8,6 +8,7 @@ class Line extends Shape {
     this._p1 = p1;
     this._p2 = p2;
     this._ctx = canvasCtx;
+    this._type = "Linha";
   }
 
   /**
@@ -16,6 +17,13 @@ class Line extends Shape {
   setPoints(arrayOfPoints) {
     this.p1 = arrayOfPoints[0];
     this.p2 = arrayOfPoints[1];
+  }
+
+  /**
+   * @returns {String}
+   */
+  get type() {
+    return this._type;
   }
 
   /**

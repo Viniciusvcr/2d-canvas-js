@@ -27,6 +27,9 @@ const rectangleButton = document.getElementById("rectButton");
 const triangleButton = document.getElementById("triangleButton");
 const circleButton = document.getElementById("circleButton");
 
+// Table
+const objTable = document.getElementById("object-table");
+
 // Styling
 const style = canvas.style;
 const parentStyle = canvas.parentElement.style;
@@ -51,7 +54,6 @@ function render() {
   }
 
   requestAnimationFrame(render);
-  // TODO construir tabela
 }
 
 render();
