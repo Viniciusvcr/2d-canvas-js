@@ -8,7 +8,7 @@ function addTableLine(id, obj) {
   let clicked;
   if (obj.selected) {
     clicked = true;
-    newTr.style.backgroundColor = "cornflowerblue";
+    newTr.style.backgroundColor = SELECTED_COLOR;
   } else {
     clicked = false;
     newTr.style.backgroundColor = "";
@@ -21,7 +21,7 @@ function addTableLine(id, obj) {
     if (!clicked) {
       selectCommand.execute();
       clicked = true;
-      newTr.style.backgroundColor = "cornflowerblue";
+      newTr.style.backgroundColor = SELECTED_COLOR;
     } else {
       selectCommand.undo();
       clicked = false;

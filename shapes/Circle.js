@@ -83,4 +83,12 @@ class Circle extends Shape {
     this.ctx.arc(this.p1.x, this.p1.y, this.radius, 0, Math.PI * 2, false);
     this.ctx.stroke();
   };
+
+  /**
+   * @override
+   *
+   */
+  update = arrayOfPoints => {
+    this.setPoints(arrayOfPoints);
+  };
 }

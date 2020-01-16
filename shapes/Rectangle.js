@@ -67,4 +67,12 @@ class Rectangle extends Shape {
     this.ctx.lineTo(this.p1.x, this.p1.y);
     this.ctx.stroke();
   };
+
+  /**
+   * @override
+   *
+   */
+  update = arrayOfPoints => {
+    this.setPoints(arrayOfPoints);
+  };
 }

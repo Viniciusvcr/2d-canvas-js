@@ -72,4 +72,12 @@ class Line extends Shape {
     this.ctx.lineTo(this.p2.x, this.p2.y);
     this.ctx.stroke();
   };
+
+  /**
+   * @override
+   *
+   */
+  update = arrayOfPoints => {
+    this.setPoints(arrayOfPoints);
+  };
 }

@@ -49,6 +49,25 @@ const makeCircle = () => {
   shape = new Circle(p0, p0, canvasCtx);
 };
 
+const initTransformation = operation => {
+  transforming = true;
+  canvas.style.cursor = "crosshair";
+  currentTask.innerHTML = `Selecione o ponto de translação`;
+  transformation = operation;
+};
+
+const endTransformation = () => {
+  transforming = false;
+  transformation = undefined;
+  canvas.style.cursor = "default";
+  currentTask.innerHTML = `Selecione a ferramenta a ser usada`;
+};
+
+const translate = () => {
+  initTransformation();
+  transformation = "Translation";
+};
+
 // Canvas EventListeners
 canvas.addEventListener("mousemove", e => writeAxisLabels(e));
 canvas.addEventListener("click", e => {
@@ -64,6 +83,19 @@ canvas.addEventListener("click", e => {
       operation.executeCommand(new DrawObjectCommand(shape));
       endDrawing();
     }
+  }
+});
+canvas.addEventListener("click", e => {
+  if (transforming) {
+    const newPoint = createPoint(e);
+    const Command = transformations[transformation];
+
+    for (const selected of Object.values(state.selected)) {
+      operation.executeCommand(new Command(newPoint, selected));
+    }
+
+    canvas.style.cursor = "default";
+    endTransformation();
   }
 });
 
@@ -94,6 +126,10 @@ lineButton.addEventListener("click", () => {
 
 circleButton.addEventListener("click", () => {
   makeCircle();
+});
+
+translationButton.addEventListener("click", () => {
+  translate();
 });
 
 // Accepted Keyboard Shortcuts of Tools (Ctrl key has to be pressed)

@@ -84,4 +84,12 @@ class Triangle extends Shape {
     this.ctx.closePath();
     this.ctx.stroke();
   };
+
+  /**
+   * @override
+   *
+   */
+  update = arrayOfPoints => {
+    this.setPoints(arrayOfPoints);
+  };
 }

@@ -9,14 +9,21 @@ const state = {
 const operation = new Operation();
 const p0 = new Point(0, 0);
 const SHAPE_COLOR = "black";
-const SELECTED_COLOR = "blue";
+const SELECTED_COLOR = "red";
 
 // Variables
 let drawing = false;
+let transforming = false;
 let pointsNeeded = 0;
 let shape = undefined;
+let transformation = undefined;
 let points = [];
 let ID = 0;
+
+// Transformations
+const transformations = {
+  Translation: TranslationCommand
+};
 
 // Buttons
 const clearButton = document.getElementById("clearButton");
@@ -26,6 +33,7 @@ const lineButton = document.getElementById("lineButton");
 const rectangleButton = document.getElementById("rectButton");
 const triangleButton = document.getElementById("triangleButton");
 const circleButton = document.getElementById("circleButton");
+const translationButton = document.getElementById("translationButton");
 
 // Table
 const objTable = document.getElementById("object-table");
