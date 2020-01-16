@@ -7,6 +7,7 @@ class Operation {
   executeCommand(command) {
     command.execute();
     this.history.push(command);
+    updateObjTable();
   }
 
   undoCommand() {
@@ -14,6 +15,7 @@ class Operation {
     if (lastCommand) {
       lastCommand.undo();
       this.undone.push(lastCommand);
+      updateObjTable();
     }
   }
 
@@ -22,6 +24,7 @@ class Operation {
     if (lastUndone) {
       lastUndone.execute();
       this.history.push(lastUndone);
+      updateObjTable();
     }
   }
 }
