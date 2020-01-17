@@ -49,6 +49,6 @@ function desenhar_retangulo(x1, y1, x2, y2) {
 function transladar(x1, x2) {
   const newPoint = new Point(x1, x2);
   for (const obj of Object.values(state.selected)) {
-    operation.executeCommand(new TranslationCommand(newPoint, obj));
+    operation.executeCommand(new TranslationCommand(newPoint));
   }
 }
