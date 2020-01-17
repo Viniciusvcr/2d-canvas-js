@@ -2,7 +2,7 @@
 const canvas = document.getElementById("canvas");
 const currentTask = document.getElementById("currentTask");
 const canvasCtx = canvas.getContext("2d");
-const state = {
+let state = {
   onCanvas: {},
   selected: {}
 };

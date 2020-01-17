@@ -98,9 +98,7 @@ canvas.addEventListener("click", e => {
     const newPoint = createPoint(e);
     const Command = transformations[transformation];
 
-    for (const selected of Object.values(state.selected)) {
-      operation.executeCommand(new Command(newPoint, selected));
-    }
+    operation.executeCommand(new Command(newPoint));
 
     canvas.style.cursor = "default";
     endTransformation();
