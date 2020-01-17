@@ -14,7 +14,9 @@ const createPoint = e => {
 const initDrawing = () => {
   drawing = true;
   canvas.style.cursor = "crosshair";
-  currentTask.innerHTML = `Selecione o Ponto ${points.length + 1}`;
+  currentTask.innerHTML = `Selecione o Ponto ${points.length + 1} do(a) ${
+    shape.type
+  }`;
 };
 
 const endDrawing = () => {
@@ -26,27 +28,27 @@ const endDrawing = () => {
 };
 
 const makeRect = () => {
+  shape = new Rectangle(p0, p0, canvasCtx);
   initDrawing();
   pointsNeeded = 2;
-  shape = new Rectangle(p0, p0, canvasCtx);
 };
 
 const makeTriangle = () => {
+  shape = new Triangle(p0, p0, p0, canvasCtx);
   initDrawing();
   pointsNeeded = 3;
-  shape = new Triangle(p0, p0, p0, canvasCtx);
 };
 
 const makeLine = () => {
+  shape = new Line(p0, p0, canvasCtx);
   initDrawing();
   pointsNeeded = 2;
-  shape = new Line(p0, p0, canvasCtx);
 };
 
 const makeCircle = () => {
+  shape = new Circle(p0, p0, canvasCtx);
   initDrawing();
   pointsNeeded = 2;
-  shape = new Circle(p0, p0, canvasCtx);
 };
 
 const initTransformation = operation => {
@@ -78,7 +80,9 @@ canvas.addEventListener("click", e => {
   if (drawing) {
     const newPoint = createPoint(e);
     points.push(newPoint);
-    currentTask.innerHTML = `Selecione o Ponto ${points.length + 1}`;
+    currentTask.innerHTML = `Selecione o Ponto ${points.length + 1} do(a) ${
+      shape.type
+    }`;
 
     if (points.length === pointsNeeded) {
       drawing = false;
