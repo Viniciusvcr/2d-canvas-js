@@ -86,6 +86,32 @@ const scale = () => {
   }
 };
 
+const rotate = () => {
+  if (Object.keys(state.selected).length === 0) {
+    alert("Selecione um objeto para realizar a rotação");
+  } else if (Object.keys(state.selected).length > 1) {
+    alert("Não é possível usar a rotação em mais de um objeto ao mesmo tempo");
+  } else {
+    const obj = Object.values(state.selected)[0];
+    const theta = Number.parseFloat(
+      prompt("Insira o ângulo de rotação (em graus)", 0)
+    );
+    const x = Number.parseFloat(
+      prompt(
+        "Insira o ponto de rotação X (padrão: primeiro ponto do objeto)",
+        obj.shape.p1.x
+      )
+    );
+    const y = Number.parseFloat(
+      prompt(
+        "Insira o ponto de rotação Y (padrão: primeiro ponto do objeto)",
+        obj.shape.p1.y
+      )
+    );
+    operation.executeCommand(new RotationCommand(theta, x, y));
+  }
+};
+
 // Canvas EventListeners
 canvas.addEventListener("mousemove", e => writeAxisLabels(e));
 canvas.addEventListener("click", e => {
@@ -158,6 +184,10 @@ scaleButton.addEventListener("click", () => {
   scale();
 });
 
+rotationButton.addEventListener("click", () => {
+  rotate();
+});
+
 // Accepted Keyboard Shortcuts of Tools (Ctrl key has to be pressed)
 const acceptedCtrlKeys = {
   L() {
@@ -201,6 +231,10 @@ const acceptedKeys = {
 
   E() {
     scale();
+  },
+
+  R() {
+    rotate();
   }
 };
 

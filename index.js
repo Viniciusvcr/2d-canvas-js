@@ -36,6 +36,7 @@ const triangleButton = document.getElementById("triangleButton");
 const circleButton = document.getElementById("circleButton");
 const translationButton = document.getElementById("translationButton");
 const scaleButton = document.getElementById("scaleButton");
+const rotationButton = document.getElementById("rotationButton");
 
 // Table
 const objTable = document.getElementById("object-table");

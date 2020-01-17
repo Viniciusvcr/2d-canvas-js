@@ -56,3 +56,7 @@ function transladar(x1, x2) {
 function escala(sx, sy) {
   operation.executeCommand(new ScaleCommand(sx, sy));
 }
+
+function rotacao(theta, x = undefined, y = undefined) {
+  operation.executeCommand(new RotationCommand(theta, x, y));
+}

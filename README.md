@@ -18,7 +18,7 @@ Repositório usado no trabalho de Computação Gráfica - CC UEM 2019
     - [x] Clear
     - [x] Translação
     - [x] Escala
-    - [ ] Rotação
+    - [x] Rotação
     - [ ] Zoom
         - [ ] Janela
         - [ ] Aspect Ratio
@@ -36,7 +36,7 @@ Repositório usado no trabalho de Computação Gráfica - CC UEM 2019
     - [ ] Linha de Comando
         - [x] Translação
         - [x] Escala
-        - [ ] Rotação
+        - [x] Rotação
         - [ ] Zoom
             - [ ] Janela
             - [ ] Aspect Ratio
