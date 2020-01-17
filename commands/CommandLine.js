@@ -52,3 +52,7 @@ function transladar(x1, x2) {
     operation.executeCommand(new TranslationCommand(newPoint, obj));
   }
 }
+
+function escala(sx, sy) {
+  operation.executeCommand(new ScaleCommand(sx, sy));
+}

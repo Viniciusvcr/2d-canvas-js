@@ -22,7 +22,8 @@ let ID = 0;
 
 // Transformations
 const transformations = {
-  Translation: TranslationCommand
+  Translation: { Command: TranslationCommand, needsPoints: true },
+  Scale: { Command: ScaleCommand, needsPoints: false }
 };
 
 // Buttons
@@ -34,6 +35,7 @@ const rectangleButton = document.getElementById("rectButton");
 const triangleButton = document.getElementById("triangleButton");
 const circleButton = document.getElementById("circleButton");
 const translationButton = document.getElementById("translationButton");
+const scaleButton = document.getElementById("scaleButton");
 
 // Table
 const objTable = document.getElementById("object-table");

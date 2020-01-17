@@ -74,6 +74,16 @@ const translate = () => {
   transformation = "Translation";
 };
 
+const scale = () => {
+  if (Object.keys(state.selected).length > 1) {
+    alert("Não é possível usar a escala em mais de um objeto ao mesmo tempo");
+  } else {
+    const sx = Number.parseFloat(prompt("Insira a escala do eixo X", 1));
+    const sy = Number.parseFloat(prompt("Insira a escala do eixo Y", 1));
+    operation.executeCommand(new ScaleCommand(sx, sy));
+  }
+};
+
 // Canvas EventListeners
 canvas.addEventListener("mousemove", e => writeAxisLabels(e));
 canvas.addEventListener("click", e => {
@@ -95,10 +105,14 @@ canvas.addEventListener("click", e => {
 });
 canvas.addEventListener("click", e => {
   if (transforming) {
-    const newPoint = createPoint(e);
-    const Command = transformations[transformation];
+    const { Command, needsPoints } = transformations[transformation];
+    if (needsPoints) {
+      const newPoint = createPoint(e);
 
-    operation.executeCommand(new Command(newPoint));
+      operation.executeCommand(new Command(newPoint));
+    } else {
+      operation.executeCommand(new Command());
+    }
 
     canvas.style.cursor = "default";
     endTransformation();
@@ -136,6 +150,10 @@ circleButton.addEventListener("click", () => {
 
 translationButton.addEventListener("click", () => {
   translate();
+});
+
+scaleButton.addEventListener("click", () => {
+  scale();
 });
 
 // Accepted Keyboard Shortcuts of Tools (Ctrl key has to be pressed)
@@ -177,6 +195,10 @@ const acceptedKeys = {
 
   T() {
     translate();
+  },
+
+  E() {
+    scale();
   }
 };
 

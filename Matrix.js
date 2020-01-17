@@ -14,6 +14,16 @@ function generateMatrix(objects) {
   return matrix;
 }
 
+function getCoordinates(matrix) {
+  const newCoordinates = [];
+
+  for (const i in matrix[0]) {
+    newCoordinates.push(new Point(matrix[0][i], matrix[1][i]));
+  }
+
+  return newCoordinates;
+}
+
 function matrixMultiply(a, b) {
   const bCols = transpose(b);
 

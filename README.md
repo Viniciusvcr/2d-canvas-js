@@ -16,8 +16,8 @@ Repositório usado no trabalho de Computação Gráfica - CC UEM 2019
     - [x] Único Objeto
 - [ ] Operações
     - [x] Clear
-    - [ ] Translação
-    - [ ] Escala
+    - [x] Translação
+    - [x] Escala
     - [ ] Rotação
     - [ ] Zoom
         - [ ] Janela
@@ -34,8 +34,8 @@ Repositório usado no trabalho de Computação Gráfica - CC UEM 2019
     - [x] Undo
     - [x] Redo
     - [ ] Linha de Comando
-        - [ ] Translação
-        - [ ] Escala
+        - [x] Translação
+        - [x] Escala
         - [ ] Rotação
         - [ ] Zoom
             - [ ] Janela
