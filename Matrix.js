@@ -30,6 +30,27 @@ function matrixMultiply(a, b) {
   return a.map(aRow => bCols.map(bCol => dotProduct(aRow, bCol)));
 }
 
+function getCoordinatesForObject(matrix, start, type) {
+  let qntd = 0;
+
+  if (type === "Círculo") {
+    qntd = 2;
+  } else if (type === "Linha") {
+    qntd = 2;
+  } else if (type === "Retângulo") {
+    qntd = 2;
+  } else if (type === "Triângulo") {
+    qntd = 3;
+  }
+
+  const coordinates = [];
+  for (let i = 0; i < qntd; i++) {
+    coordinates.push(matrix[start + i]);
+  }
+
+  return [qntd + start, coordinates];
+}
+
 // dotProduct :: Num a => [[a]] -> [[a]] -> [[a]]
 const dotProduct = (xs, ys) => sum(zipWith(product, xs, ys));
 

@@ -22,9 +22,9 @@ Repositório usado no trabalho de Computação Gráfica - CC UEM 2019
     - [ ] Zoom
         - [ ] Janela
         - [ ] Aspect Ratio
-    - [ ] Zoom Extent
-        - [ ] Centralizar
-        - [ ] Aspect Ratio
+    - [x] Zoom Extent
+        - [x] Centralizar
+        - [x] Aspect Ratio
 - [ ] IHC
     - [x] Feedback
     - [x] Cursor
@@ -38,11 +38,7 @@ Repositório usado no trabalho de Computação Gráfica - CC UEM 2019
         - [x] Escala
         - [x] Rotação
         - [ ] Zoom
-            - [ ] Janela
-            - [ ] Aspect Ratio
-        - [ ] Zoom Extent
-            - [ ] Centralizar
-            - [ ] Aspect Ratio
+        - [x] Zoom Extent
         - [x] Clear
         - [x] Undo
         - [x] Redo

@@ -60,3 +60,7 @@ function escala(sx, sy) {
 function rotacao(theta, x = undefined, y = undefined) {
   operation.executeCommand(new RotationCommand(theta, x, y));
 }
+
+function zoom_extent() {
+  zoomExt();
+}

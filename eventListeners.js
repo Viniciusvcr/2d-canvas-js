@@ -112,6 +112,42 @@ const rotate = () => {
   }
 };
 
+const zoomExt = () => {
+  let xMin = canvas.width,
+    yMin = canvas.height,
+    xMax = 0,
+    yMax = 0;
+
+  for (const obj of Object.values(state.onCanvas)) {
+    for (const point of obj.shape.points) {
+      if (point.x > xMax) {
+        xMax = point.x;
+      }
+
+      if (point.y > yMax) {
+        yMax = point.y;
+      }
+
+      if (point.x < xMin) {
+        xMin = point.x;
+      }
+
+      if (point.y < yMin) {
+        yMin = point.y;
+      }
+    }
+  }
+
+  operation.executeCommand(
+    new ZoomExtentCommand(
+      new Point(xMin, yMin),
+      new Point(xMax, yMax),
+      p0,
+      new Point(1024, 768)
+    )
+  );
+};
+
 // Canvas EventListeners
 canvas.addEventListener("mousemove", e => writeAxisLabels(e));
 canvas.addEventListener("click", e => {
@@ -188,6 +224,10 @@ rotationButton.addEventListener("click", () => {
   rotate();
 });
 
+zoomExtButton.addEventListener("click", () => {
+  zoomExt();
+});
+
 // Accepted Keyboard Shortcuts of Tools (Ctrl key has to be pressed)
 const acceptedCtrlKeys = {
   L() {
@@ -235,6 +275,10 @@ const acceptedKeys = {
 
   R() {
     rotate();
+  },
+
+  X() {
+    zoomExt();
   }
 };
 
