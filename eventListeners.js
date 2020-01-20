@@ -277,6 +277,10 @@ const acceptedKeys = {
 
   X() {
     zoomExt();
+  },
+
+  Escape() {
+    endDrawing();
   }
 };
 

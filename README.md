@@ -59,7 +59,8 @@ Repositório usado no trabalho de Computação Gráfica - CC UEM 2019
 ### Comandos
 
 - Na interface principal, é possível ver o canvas de desenho, os botões de ferramentas e uma tabela de objetos presentes na tela.
-    - Cada botão presente no programa conta com um atalho de teclado, citado entre parênteses. (Letras em maiúsculo representam shift + letra)
+    - Cada botão presente no programa conta com um atalho de teclado, citado entre parênteses. (Letras em maiúsculo representam shift + letra);
+    - O botão ESC (Escape) cancela a operação de qualquer uma das operações de desenho.
 
 - Os comandos também estão disponíveis via linha de comando. Ela é acessível pelo próprio console do navegador
     - Abrir console no Google Chrome: Ctrl + Shift + j
