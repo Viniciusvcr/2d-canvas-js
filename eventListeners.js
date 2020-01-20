@@ -77,8 +77,6 @@ const translate = () => {
 const scale = () => {
   if (Object.keys(state.selected).length === 0) {
     alert("Selecione um objeto para realizar a escala");
-  } else if (Object.keys(state.selected).length > 1) {
-    alert("Não é possível usar a escala em mais de um objeto ao mesmo tempo");
   } else {
     const sx = Number.parseFloat(prompt("Insira a escala do eixo X", 1));
     const sy = Number.parseFloat(prompt("Insira a escala do eixo Y", 1));
