@@ -72,6 +72,13 @@ Repositório usado no trabalho de Computação Gráfica - CC UEM 2019
 - Para selecionar/deselecionar um ou vários objetos presentes no canvas, clique em uma linha da Tabela de Objetos.
 - Quando selecionado, o objeto e sua linha da tabela ficarão vermelhos, representando que estão selecionados.
 
+### Eixos
+
+- A posição do mouse em relação aos eixos X e Y estão localizados no programa, abaixo do canvas.
+- O ponto (0, 0) é o ponto do canto superior direito.
+    - Sentido positivo de X: para direita;
+    - Sentido positivo de y: para baixo.
+
 ### Interfaces de comandos
 
 |                   Comando                  |                                                                          Parâmetros                                                                          |                                                  Descrição                                                  |
