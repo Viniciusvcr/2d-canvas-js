@@ -52,3 +52,19 @@ function transladar(x1, x2) {
     operation.executeCommand(new TranslationCommand(newPoint));
   }
 }
+
+function escala(sx, sy) {
+  if (Object.values(state.selected).length > 0) {
+    operation.executeCommand(new ScaleCommand(sx, sy));
+  } else return "Selecione objetos para mudar a escala";
+}
+
+function rotacao(theta, x = undefined, y = undefined) {
+  if (Object.values(state.selected).length > 0) {
+    operation.executeCommand(new RotationCommand(theta, x, y));
+  } else return "Selecione objetos para rotacionar";
+}
+
+function zoom_extent() {
+  zoomExt();
+}

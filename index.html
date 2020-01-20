@@ -17,6 +17,9 @@
   <script src="./commands/DrawObjectCommand.js"></script>
   <script src="./commands/SelectCommand.js"></script>
   <script src="./commands/TranslationCommand.js"></script>
+  <script src="./commands/ScaleCommand.js"></script>
+  <script src="./commands/RotationCommand.js"></script>
+  <script src="./commands/ZoomExtentCommand.js"></script>
 </head>
 <body>
   <div>
@@ -26,16 +29,19 @@
           <div style="margin: auto auto auto 0">
             <div style="text-align:center; padding-bottom: 8px;">
               <div style="padding-bottom: 8px;">
-                <button type="button" id='clearButton'>Clear (Ctrl + L)</button>
-                <button type="button" id='undoButton'>Undo (Ctrl + z)</button>
-                <button type="button" id='redoButton'>Redo (Ctrl + y)</button>
-                <button type="button" id='translationButton'>Translação (Shift + t)</button>
-              </div>
-              <div>
                 <button type="button" id='lineButton'>Linha (l)</button>
                 <button type="button" id='rectButton'>Retângulo (r)</button>
                 <button type="button" id='triangleButton'>Triângulo (t)</button>
                 <button type="button" id='circleButton'>Círculo (c)</button>
+              </div>
+              <div>
+                <button type="button" id='clearButton'>Clear (Ctrl + L)</button>
+                <button type="button" id='undoButton'>Undo (Ctrl + z)</button>
+                <button type="button" id='redoButton'>Redo (Ctrl + y)</button>
+                <button type="button" id='translationButton'>Translação (Shift + t)</button>
+                <button type="button" id='scaleButton'>Escala (Shift + e)</button>
+                <button type="button" id='rotationButton'>Rotação (Shift + r)</button>
+                <button type="button" id='zoomExtButton'>Zoom Extent (Shift + x)</button>
               </div>
             </div>
           </div>
@@ -62,6 +68,7 @@
     </div>
     <script src="./table.js"></script>
     <script src="./index.js"></script>
+    <script src="./Matrix.js"></script>
     <script src="./eventListeners.js"></script>
     <script src="./commands/CommandLine.js"></script>
   </div>

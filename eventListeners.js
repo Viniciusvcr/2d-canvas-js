@@ -74,6 +74,78 @@ const translate = () => {
   transformation = "Translation";
 };
 
+const scale = () => {
+  if (Object.keys(state.selected).length === 0) {
+    alert("Selecione um objeto para realizar a escala");
+  } else {
+    const sx = Number.parseFloat(prompt("Insira a escala do eixo X", 1));
+    const sy = Number.parseFloat(prompt("Insira a escala do eixo Y", 1));
+    operation.executeCommand(new ScaleCommand(sx, sy));
+  }
+};
+
+const rotate = () => {
+  if (Object.keys(state.selected).length === 0) {
+    alert("Selecione um objeto para realizar a rotação");
+  } else {
+    const obj = Object.values(state.selected)[0];
+    const theta = Number.parseFloat(
+      prompt("Insira o ângulo de rotação (em graus)", 0)
+    );
+
+    const x = Number.parseFloat(
+      prompt(
+        "Insira o ponto de rotação X (padrão: X do primeiro ponto do primeiro objeto selecionado)",
+        obj.shape.p1.x
+      )
+    );
+
+    const y = Number.parseFloat(
+      prompt(
+        "Insira o ponto de rotação Y (padrão: Y do primeiro ponto do primeiro objeto selecionado)",
+        obj.shape.p1.y
+      )
+    );
+    operation.executeCommand(new RotationCommand(theta, x, y));
+  }
+};
+
+const zoomExt = () => {
+  let xMin = canvas.width,
+    yMin = canvas.height,
+    xMax = 0,
+    yMax = 0;
+
+  for (const obj of Object.values(state.onCanvas)) {
+    for (const point of obj.shape.points) {
+      if (point.x > xMax) {
+        xMax = point.x;
+      }
+
+      if (point.y > yMax) {
+        yMax = point.y;
+      }
+
+      if (point.x < xMin) {
+        xMin = point.x;
+      }
+
+      if (point.y < yMin) {
+        yMin = point.y;
+      }
+    }
+  }
+
+  operation.executeCommand(
+    new ZoomExtentCommand(
+      new Point(xMin, yMin),
+      new Point(xMax, yMax),
+      p0,
+      new Point(1024, 768)
+    )
+  );
+};
+
 // Canvas EventListeners
 canvas.addEventListener("mousemove", e => writeAxisLabels(e));
 canvas.addEventListener("click", e => {
@@ -95,10 +167,14 @@ canvas.addEventListener("click", e => {
 });
 canvas.addEventListener("click", e => {
   if (transforming) {
-    const newPoint = createPoint(e);
-    const Command = transformations[transformation];
+    const { Command, needsPoints } = transformations[transformation];
+    if (needsPoints) {
+      const newPoint = createPoint(e);
 
-    operation.executeCommand(new Command(newPoint));
+      operation.executeCommand(new Command(newPoint));
+    } else {
+      operation.executeCommand(new Command());
+    }
 
     canvas.style.cursor = "default";
     endTransformation();
@@ -136,6 +212,18 @@ circleButton.addEventListener("click", () => {
 
 translationButton.addEventListener("click", () => {
   translate();
+});
+
+scaleButton.addEventListener("click", () => {
+  scale();
+});
+
+rotationButton.addEventListener("click", () => {
+  rotate();
+});
+
+zoomExtButton.addEventListener("click", () => {
+  zoomExt();
 });
 
 // Accepted Keyboard Shortcuts of Tools (Ctrl key has to be pressed)
@@ -177,6 +265,18 @@ const acceptedKeys = {
 
   T() {
     translate();
+  },
+
+  E() {
+    scale();
+  },
+
+  R() {
+    rotate();
+  },
+
+  X() {
+    zoomExt();
   }
 };
 
