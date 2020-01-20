@@ -27,6 +27,7 @@ const transformations = {
 };
 
 // Buttons
+const helpButton = document.getElementById("helpButton");
 const clearButton = document.getElementById("clearButton");
 const undoButton = document.getElementById("undoButton");
 const redoButton = document.getElementById("redoButton");
