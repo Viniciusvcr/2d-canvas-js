@@ -87,22 +87,22 @@ const scale = () => {
 const rotate = () => {
   if (Object.keys(state.selected).length === 0) {
     alert("Selecione um objeto para realizar a rotação");
-  } else if (Object.keys(state.selected).length > 1) {
-    alert("Não é possível usar a rotação em mais de um objeto ao mesmo tempo");
   } else {
     const obj = Object.values(state.selected)[0];
     const theta = Number.parseFloat(
       prompt("Insira o ângulo de rotação (em graus)", 0)
     );
+
     const x = Number.parseFloat(
       prompt(
-        "Insira o ponto de rotação X (padrão: primeiro ponto do objeto)",
+        "Insira o ponto de rotação X (padrão: X do primeiro ponto do primeiro objeto selecionado)",
         obj.shape.p1.x
       )
     );
+
     const y = Number.parseFloat(
       prompt(
-        "Insira o ponto de rotação Y (padrão: primeiro ponto do objeto)",
+        "Insira o ponto de rotação Y (padrão: Y do primeiro ponto do primeiro objeto selecionado)",
         obj.shape.p1.y
       )
     );

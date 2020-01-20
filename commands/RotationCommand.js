@@ -1,40 +1,49 @@
-// TODO Vários objetos
 class RotationCommand {
   constructor(theta, x, y) {
     this.theta = -(theta * (Math.PI / 180));
-    this.object = Object.values(state.selected)[0];
+    this.objects = Object.entries(state.selected);
     this.x = x;
     this.y = y;
-    this.previousCoordinates = this.object.shape.points;
+    this.previousCoordinates = [];
   }
 
   execute() {
     const cos = Math.cos;
-    const x = this.x ? this.x : this.object.shape.p1.x;
-    const y = this.y ? this.y : this.object.shape.p1.y;
     const sin = Math.sin;
-    const mObj = generateMatrix(Object.values(state.selected));
-    const mTransformation = [
-      [
-        cos(this.theta),
-        -sin(this.theta),
-        y * sin(this.theta) - x * cos(this.theta) + x
-      ],
-      [
-        sin(this.theta),
-        cos(this.theta),
-        -x * sin(this.theta) - y * cos(this.theta) + y
-      ],
-      [0, 0, 1]
-    ];
+    const x = this.x;
+    const y = this.y;
 
-    const result = matrixMultiply(mTransformation, mObj);
-    const newCoordinates = getCoordinates(result);
+    for (const [id, obj] of this.objects) {
+      const mObj = generateMatrix([obj]);
+      const mTransformation = [
+        [
+          cos(this.theta),
+          -sin(this.theta),
+          y * sin(this.theta) - x * cos(this.theta) + x
+        ],
+        [
+          sin(this.theta),
+          cos(this.theta),
+          -x * sin(this.theta) - y * cos(this.theta) + y
+        ],
+        [0, 0, 1]
+      ];
 
-    this.object.shape.update(newCoordinates);
+      const result = matrixMultiply(mTransformation, mObj);
+      const newCoordinates = getCoordinates(result);
+
+      this.previousCoordinates.push({
+        id: id,
+        oldCoordinates: obj.shape.points
+      });
+
+      obj.shape.update(newCoordinates);
+    }
   }
 
   undo() {
-    this.object.shape.update(this.previousCoordinates);
+    for (const obj of this.previousCoordinates) {
+      state.onCanvas[obj.id].shape.update(obj.oldCoordinates);
+    }
   }
 }
