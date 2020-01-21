@@ -27,161 +27,159 @@
 </head>
 <body>
   <div>
-    <nav class="navbar navbar-light" style="background-color: #cccccc;">
+    <nav class="navbar navbar-light" style="background-color: #121212;">
       <form class="form-inline">
-        <button type="button" class="m-1 btn btn-outline-dark btn-sm" type="button" id='clearButton'>Clear (Ctrl + L)</button>
-        <button type="button" class="m-1 btn btn-outline-dark btn-sm" type="button" id='undoButton'>Undo (Ctrl + z)</button>
-        <button type="button" class="m-1 btn btn-outline-dark btn-sm" type="button" id='redoButton'>Redo (Ctrl + y)</button>
-        <button type="button" class="m-1 btn btn-outline-dark btn-sm" type="button" id='translationButton'>Translação (Shift + t)</button>
-        <button type="button" class="m-1 btn btn-outline-dark btn-sm" type="button" id='scaleButton'>Escala (Shift + e)</button>
-        <button type="button" class="m-1 btn btn-outline-dark btn-sm" type="button" id='rotationButton'>Rotação (Shift + r)</button>
-        <button type="button" class="m-1 btn btn-outline-dark btn-sm" type="button" id='zoomExtButton'>Zoom Extent (Shift + x)</button>
+        <button type="button" class="m-1 btn btn-outline-light btn-sm" type="button" id='clearButton'>Clear (Ctrl + L)</button>
+        <button type="button" class="m-1 btn btn-outline-light btn-sm" type="button" id='undoButton'>Undo (Ctrl + z)</button>
+        <button type="button" class="m-1 btn btn-outline-light btn-sm" type="button" id='redoButton'>Redo (Ctrl + y)</button>
+        <button type="button" class="m-1 btn btn-outline-light btn-sm" type="button" id='translationButton'>Translação (Shift + t)</button>
+        <button type="button" class="m-1 btn btn-outline-light btn-sm" type="button" id='scaleButton'>Escala (Shift + e)</button>
+        <button type="button" class="m-1 btn btn-outline-light btn-sm" type="button" id='rotationButton'>Rotação (Shift + r)</button>
+        <button type="button" class="m-1 btn btn-outline-light btn-sm" type="button" id='zoomExtButton'>Zoom Extent (Shift + x)</button>
         <!-- Button trigger modal -->
       </form>
       <form class="form-inline my-2 my-lg-0">
-        <button id="helpButton" class="btn btn-dark btn" data-toggle="modal" data-target="#exampleModalCenter">Ajuda</button>
+        <a id="helpButton" class="btn btn-light text-dark" data-toggle="modal" data-target="#exampleModalCenter">Ajuda</a>
       </form>
     </nav>
-    <div style="width: 100%; display: table;">
-      <div style="display: table-row">
-        <div style="text-align:center; width: 500px; display: table-cell;">
-          <div style="margin: auto auto auto 0">
-            <div style="text-align:center;">
-              <div>
-                <label id="currentTask">Selecione a ferramenta a ser usada</label>
-              </div>
-              <div style="padding-bottom: 4px">
-                <button type="button" class="btn btn-outline-dark btn-sm" type="button" id='lineButton'>Linha (l)</button>
-                <button type="button" class="btn btn-outline-dark btn-sm" type="button" id='rectButton'>Retângulo (r)</button>
-                <button type="button" class="btn btn-outline-dark btn-sm" type="button" id='triangleButton'>Triângulo (t)</button>
-                <button type="button" class="btn btn-outline-dark btn-sm" type="button" id='circleButton'>Círculo (c)</button>
-              </div>
-            </div>
-          </div>
-          <div style="padding-left: 20px;">
-            <div style="margin: auto 0 auto auto;";>
-              <canvas style="margin: auto;" id="canvas"></canvas>
-            </div>
-            <div style="padding-bottom: 8px; float: left;">
-              <label id="xAxis" style="padding-left: 8px;">Eixo X: 0</label>
-              <label id="yAxis" style="padding-left: 8px;">Eixo Y: 0</label>
-            </div>
-          </div>
-          <!-- Modal -->
-          <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLongTitle">Ajuda ao Usuário</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body" align="justify">
-                  <h3 id="comandos">Comandos</h3>
-                  <ul>
-                    <li>Na interface principal, é possível ver o canvas de desenho, os botões de ferramentas e uma tabela de objetos presentes na tela.
-                  <ul>
-                    <li>Cada botão presente no programa conta com um atalho de teclado, citado entre parênteses. (Letras em maiúsculo representam shift + letra);</li>
-                    <li>O botão ESC (Escape) cancela a operação de qualquer uma das operações de desenho.</li>
-                  </ul></li>
-                    <li>Os comandos também estão disponíveis via linha de comando. Ela é acessível pelo próprio console do navegador
-                  <ul>
-                    <li>Abrir console no Google Chrome: Ctrl + Shift + j</li>
-                    <li><p>Abrir console no Firefox: Ctrl + Shift + k</p></li>
-                    <li><p>Uma lista das interfaces dos comandos será disponibilizada mais a frente.</p></li>
-                  </ul></li>
-                  </ul>
-                  <h3 id="seleção-de-objetos">Seleção de objetos</h3>
-                  <ul>
-                    <li>Para selecionar/deselecionar um ou vários objetos presentes no canvas, clique em uma linha da Tabela de Objetos.</li>
-                    <li>Quando selecionado, o objeto e sua linha da tabela ficarão vermelhos, representando que estão selecionados.</li>
-                  </ul>
-                  <h3 id="eixos">Eixos</h3>
-                  <ul>
-                    <li>A posição do mouse em relação aos eixos X e Y estão localizados no programa, abaixo do canvas.</li>
-                    <li>O ponto (0, 0) é o ponto do canto superior direito.
-                  <ul>
-                    <li>Sentido positivo de X: para direita;</li>
-                    <li>Sentido positivo de y: para baixo.</li>
-                  </ul></li>
-                  </ul>
-                  <h3 id="interfaces-de-comandos">Interfaces de comandos</h3>
-                  <table>
-                    <thead>
-                    <tr class="header">
-                      <th align="center">Comando</th>
-                      <th align="center">Parâmetros</th>
-                      <th align="center">Descrição</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr class="odd">
-                      <td align="center">clearScreen()</td>
-                      <td align="center">-</td>
-                      <td align="center">Limpa a tela, destruindo todos os objetos</td>
-                    </tr>
-                    <tr class="even">
-                      <td align="center">undo()</td>
-                      <td align="center">-</td>
-                      <td align="center">Desfaz a última ação feita pelo usuário</td>
-                    </tr>
-                    <tr class="odd">
-                      <td align="center">redo()</td>
-                      <td align="center">-</td>
-                      <td align="center">Refaz a última ação desfeita pelo usuário</td>
-                    </tr>
-                    <tr class="even">
-                      <td align="center">desenhar_triangulo(x1, y1, x2, y2, x3, y3)</td>
-                      <td align="center">x1: X do primeiro ponto<br>y1: Y do primeiro ponto<br>x2: X do segundo ponto<br>y2: Y do segundo ponto<br>x3: X do terceiro ponto<br>y3: Y do terceiro ponto</td>
-                      <td align="center">Desenha um triângulo com os três pontos disponibilizados</td>
-                    </tr>
-                    <tr class="odd">
-                      <td align="center">desenhar_circulo(x1, y1, x2, y2)</td>
-                      <td align="center">x1: X do primeiro ponto<br>y1: Y do primeiro ponto<br>x2: X do segundo ponto<br>y2: Y do segundo ponto</td>
-                      <td align="center">Desenha um círculo com os dois pontos disponibilizados <br>(centro do círculo, borda do círculo)</td>
-                    </tr>
-                    <tr class="even">
-                      <td align="center">desenhar_reta(x1, y1, x2, y2)</td>
-                      <td align="center">x1: X do primeiro ponto<br>y1: Y do primeiro ponto<br>x2: X do segundo ponto<br>y2: Y do segundo ponto</td>
-                      <td align="center">Desenha uma reta com os dois pontos disponibilizados</td>
-                    </tr>
-                    <tr class="odd">
-                      <td align="center">desenhar_retangulo(x1, y1, x2, y2)</td>
-                      <td align="center">x1: X do primeiro ponto<br>y1: Y do primeiro ponto<br>x2: X do segundo ponto<br>y2: Y do segundo ponto</td>
-                      <td align="center">Desenha um retângulo com os dois pontos disponibilizados<br>(os pontos têm que ser a diagonal do retângulo)</td>
-                    </tr>
-                    <tr class="even">
-                      <td align="center">transladar(x, y)</td>
-                      <td align="center">x: X do destino da translação<br>y: Y do destino da translação</td>
-                      <td align="center">Translada os objetos previamente selecionados para o ponto (x, y)</td>
-                    </tr>
-                    <tr class="odd">
-                      <td align="center">escala(sx, sy)</td>
-                      <td align="center">sx: Escala em X<br>sy: Escala em Y</td>
-                      <td align="center">Faz uma operação de mudança de escala (sx, sy) nos objetos selecionados</td>
-                    </tr>
-                    <tr class="even">
-                      <td align="center">rotacao(theta, x, y)</td>
-                      <td align="center">theta: Ângulo (em graus) da rotação<br>x: X do ponto de referência da rotação<br>y: Y do ponto de referência da rotação</td>
-                      <td align="center">Faz uma operação de rotação com theta graus, em torno do ponto (x, y)</td>
-                    </tr>
-                    </tbody>
-                  </table>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                </div>
-              </div>
-            </div>
-          </div>
+  </div>
+  <div class="cointainer" id="center"> <!-- abrimos a div conteudo -->
+  <div class="row align-items-start">
+    <div class="col m-1" id="conteudo-left" class="box">
+      <div style="text-align:center;">
+        <div style="padding-bottom: 8px; padding-top: 8px;">
+          <button type="button" class="btn btn-outline-dark btn-sm" type="button" id='lineButton'>Linha (l)</button>
+          <button type="button" class="btn btn-outline-dark btn-sm" type="button" id='rectButton'>Retângulo (r)</button>
+          <button type="button" class="btn btn-outline-dark btn-sm" type="button" id='triangleButton'>Triângulo (t)</button>
+          <button type="button" class="btn btn-outline-dark btn-sm" type="button" id='circleButton'>Círculo (c)</button>
         </div>
-        <div style="text-align:center; display: table-cell;">
-          <table style="margin: auto; width: 250px;" id='object-table'>
-            <tr>
-              <th>Objetos na tela</th>
-            </tr>
-          </table>
+        <div>
+          <span class="badge badge-pill badge-dark" style="font-size: 14px;"id="currentTask">Selecione a ferramenta a ser usada</span>
+        </div>
+      </div>
+      <div style="padding-top: 8px;">
+        <canvas id="canvas"></canvas>
+        <div>
+          <label id="xAxis" style="padding-left: 8px;">Eixo X: 0</label>
+          <label id="yAxis" style="padding-left: 8px;">Eixo Y: 0</label>
+        </div>
+      </div>
+    </div>
+    <div class="col m-1" style="padding-top: 79px;" id="conteudo-right"  class="box">
+      <table class="table table-sm table-hover" id='object-table'>
+        <tr>
+          <th>Objetos na tela</th>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  </div> <!-- aqui fechamos a div conteudo -->
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Ajuda ao Usuário</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" align="justify">
+            <h3 id="comandos">Comandos</h3>
+            <ul>
+              <li>Na interface principal, é possível ver o canvas de desenho, os botões de ferramentas e uma tabela de objetos presentes na tela.
+            <ul>
+              <li>Cada botão presente no programa conta com um atalho de teclado, citado entre parênteses. (Letras em maiúsculo representam shift + letra);</li>
+              <li>O botão ESC (Escape) cancela a operação de qualquer uma das operações de desenho.</li>
+            </ul></li>
+              <li>Os comandos também estão disponíveis via linha de comando. Ela é acessível pelo próprio console do navegador
+            <ul>
+              <li>Abrir console no Google Chrome: Ctrl + Shift + j</li>
+              <li><p>Abrir console no Firefox: Ctrl + Shift + k</p></li>
+              <li><p>Uma lista das interfaces dos comandos será disponibilizada mais a frente.</p></li>
+            </ul></li>
+            </ul>
+            <h3 id="seleção-de-objetos">Seleção de objetos</h3>
+            <ul>
+              <li>Para selecionar/deselecionar um ou vários objetos presentes no canvas, clique em uma linha da Tabela de Objetos.</li>
+              <li>Quando selecionado, o objeto e sua linha da tabela ficarão vermelhos, representando que estão selecionados.</li>
+            </ul>
+            <h3 id="eixos">Eixos</h3>
+            <ul>
+              <li>A posição do mouse em relação aos eixos X e Y estão localizados no programa, abaixo do canvas.</li>
+              <li>O ponto (0, 0) é o ponto do canto superior direito.
+            <ul>
+              <li>Sentido positivo de X: para direita;</li>
+              <li>Sentido positivo de y: para baixo.</li>
+            </ul></li>
+            </ul>
+            <h3 id="interfaces-de-comandos">Interfaces de comandos</h3>
+            <table class="table-ajuda">
+              <thead>
+              <tr class="table-ajuda" class="header">
+                <th class="table-ajuda" align="center">Comando</th>
+                <th class="table-ajuda" align="center">Parâmetros</th>
+                <th class="table-ajuda" align="center">Descrição</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr class="table-ajuda" class="odd">
+                <td class="table-ajuda" align="center">clearScreen()</td>
+                <td class="table-ajuda" align="center">-</td>
+                <td class="table-ajuda" align="center">Limpa a tela, destruindo todos os objetos</td>
+              </tr>
+              <tr class="table-ajuda" class="even">
+                <td class="table-ajuda" align="center">undo()</td>
+                <td class="table-ajuda" align="center">-</td>
+                <td class="table-ajuda" align="center">Desfaz a última ação feita pelo usuário</td>
+              </tr>
+              <tr class="table-ajuda" class="odd">
+                <td class="table-ajuda" align="center">redo()</td>
+                <td class="table-ajuda" align="center">-</td>
+                <td class="table-ajuda" align="center">Refaz a última ação desfeita pelo usuário</td>
+              </tr>
+              <tr class="table-ajuda" class="even">
+                <td class="table-ajuda" align="center">desenhar_triangulo(x1, y1, x2, y2, x3, y3)</td>
+                <td class="table-ajuda" align="center">x1: X do primeiro ponto<br>y1: Y do primeiro ponto<br>x2: X do segundo ponto<br>y2: Y do segundo ponto<br>x3: X do terceiro ponto<br>y3: Y do terceiro ponto</td>
+                <td class="table-ajuda" align="center">Desenha um triângulo com os três pontos disponibilizados</td>
+              </tr>
+              <tr class="table-ajuda" class="odd">
+                <td class="table-ajuda" align="center">desenhar_circulo(x1, y1, x2, y2)</td>
+                <td class="table-ajuda" align="center">x1: X do primeiro ponto<br>y1: Y do primeiro ponto<br>x2: X do segundo ponto<br>y2: Y do segundo ponto</td>
+                <td class="table-ajuda" align="center">Desenha um círculo com os dois pontos disponibilizados <br>(centro do círculo, borda do círculo)</td>
+              </tr>
+              <tr class="table-ajuda" class="even">
+                <td class="table-ajuda" align="center">desenhar_reta(x1, y1, x2, y2)</td>
+                <td class="table-ajuda" align="center">x1: X do primeiro ponto<br>y1: Y do primeiro ponto<br>x2: X do segundo ponto<br>y2: Y do segundo ponto</td>
+                <td class="table-ajuda" align="center">Desenha uma reta com os dois pontos disponibilizados</td>
+              </tr>
+              <tr class="table-ajuda" class="odd">
+                <td class="table-ajuda" align="center">desenhar_retangulo(x1, y1, x2, y2)</td>
+                <td class="table-ajuda" align="center">x1: X do primeiro ponto<br>y1: Y do primeiro ponto<br>x2: X do segundo ponto<br>y2: Y do segundo ponto</td>
+                <td class="table-ajuda" align="center">Desenha um retângulo com os dois pontos disponibilizados<br>(os pontos têm que ser a diagonal do retângulo)</td>
+              </tr>
+              <tr class="table-ajuda" class="even">
+                <td class="table-ajuda" align="center">transladar(x, y)</td>
+                <td class="table-ajuda" align="center">x: X do destino da translação<br>y: Y do destino da translação</td>
+                <td class="table-ajuda" align="center">Translada os objetos previamente selecionados para o ponto (x, y)</td>
+              </tr>
+              <tr class="table-ajuda" class="odd">
+                <td class="table-ajuda" align="center">escala(sx, sy)</td>
+                <td class="table-ajuda" align="center">sx: Escala em X<br>sy: Escala em Y</td>
+                <td class="table-ajuda" align="center">Faz uma operação de mudança de escala (sx, sy) nos objetos selecionados</td>
+              </tr>
+              <tr class="table-ajuda" class="even">
+                <td class="table-ajuda" align="center">rotacao(theta, x, y)</td>
+                <td class="table-ajuda" align="center">theta: Ângulo (em graus) da rotação<br>x: X do ponto de referência da rotação<br>y: Y do ponto de referência da rotação</td>
+                <td class="table-ajuda" align="center">Faz uma operação de rotação com theta graus, em torno do ponto (x, y)</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          </div>
         </div>
       </div>
     </div>
@@ -190,6 +188,5 @@
     <script src="./Matrix.js"></script>
     <script src="./eventListeners.js"></script>
     <script src="./commands/CommandLine.js"></script>
-  </div>
 </body>
 </html>

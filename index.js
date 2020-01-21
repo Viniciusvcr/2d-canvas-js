@@ -9,7 +9,7 @@ let state = {
 const operation = new Operation();
 const p0 = new Point(0, 0);
 const SHAPE_COLOR = "black";
-const SELECTED_COLOR = "red";
+const SELECTED_COLOR = "#D50000";
 
 // Variables
 let drawing = false;
@@ -48,10 +48,6 @@ const style = canvas.style;
 const parentStyle = canvas.parentElement.style;
 canvas.width = 1024;
 canvas.height = 768;
-style.marginLeft = "auto";
-style.marginRight = "auto";
-parentStyle.textAlign = "center";
-parentStyle.width = "100%";
 
 function render() {
   const onCanvasValues = Object.values(state.onCanvas);
