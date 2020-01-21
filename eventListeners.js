@@ -12,6 +12,10 @@ const createPoint = e => {
 };
 
 const initDrawing = button => {
+  unselectButton("rectButton");
+  unselectButton("circleButton");
+  unselectButton("lineButton");
+  unselectButton("triangleButton");
   drawing = true;
   selectButton(button);
   canvas.style.cursor = "crosshair";
