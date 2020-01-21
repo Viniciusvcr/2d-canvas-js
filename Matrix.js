@@ -18,7 +18,9 @@ function getCoordinates(matrix) {
   const newCoordinates = [];
 
   for (const i in matrix[0]) {
-    newCoordinates.push(new Point(matrix[0][i], matrix[1][i]));
+    newCoordinates.push(
+      new Point(Number.parseInt(matrix[0][i]), Number.parseInt(matrix[1][i]))
+    );
   }
 
   return newCoordinates;
@@ -38,7 +40,7 @@ function getCoordinatesForObject(matrix, start, type) {
   } else if (type === "Linha") {
     qntd = 2;
   } else if (type === "Retângulo") {
-    qntd = 2;
+    qntd = 4;
   } else if (type === "Triângulo") {
     qntd = 3;
   }
