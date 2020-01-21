@@ -251,6 +251,14 @@ zoomExtButton.addEventListener("click", () => {
   zoomExt();
 });
 
+selectAllButton.addEventListener("click", () => {
+  selectAll();
+});
+
+unselectAllButton.addEventListener("click", () => {
+  unselectAll();
+});
+
 // Accepted Keyboard Shortcuts of Tools (Ctrl key has to be pressed)
 const acceptedCtrlKeys = {
   L() {
@@ -267,6 +275,10 @@ const acceptedCtrlKeys = {
 
   y() {
     operation.redoCommand();
+  },
+
+  A() {
+    unselectAll();
   }
 };
 
@@ -306,6 +318,10 @@ const acceptedKeys = {
 
   Escape() {
     endDrawing();
+  },
+
+  A() {
+    selectAll();
   }
 };
 

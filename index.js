@@ -39,6 +39,9 @@ const translationButton = document.getElementById("translationButton");
 const scaleButton = document.getElementById("scaleButton");
 const rotationButton = document.getElementById("rotationButton");
 const zoomExtButton = document.getElementById("zoomExtButton");
+const zoomButton = document.getElementById("zoomButton");
+const selectAllButton = document.getElementById("selectAllButton");
+const unselectAllButton = document.getElementById("unselectAllButton");
 
 // Table
 const objTable = document.getElementById("object-table");

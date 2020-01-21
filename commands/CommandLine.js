@@ -68,3 +68,27 @@ function rotacao(theta, x = undefined, y = undefined) {
 function zoom_extent() {
   zoomExt();
 }
+
+function selectAll() {
+  for (const [id, obj] of Object.entries(state.onCanvas)) {
+    new SelectCommand(id, obj).execute();
+  }
+
+  return Object.values(state.onCanvas).length === 0
+    ? "Não há objetos para serem selecionados"
+    : "Todos os objetos foram selecionados";
+}
+
+function unselectAll() {
+  const previouslySelected = Object.values(state.selected).length;
+
+  for (const obj of Object.values(state.onCanvas)) {
+    obj.selected = false;
+  }
+
+  state.selected = {};
+
+  return previouslySelected === 0
+    ? "Não há objetos para serem deselecionados"
+    : "Todos os objetos foram deselecionados";
+}
