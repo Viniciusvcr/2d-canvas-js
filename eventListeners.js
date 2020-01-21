@@ -11,12 +11,28 @@ const createPoint = e => {
   return new Point(e.offsetX, e.offsetY);
 };
 
-const initDrawing = () => {
+const initDrawing = button => {
   drawing = true;
+  selectButton(button);
   canvas.style.cursor = "crosshair";
+  $("#currentTask")
+    .removeClass("badge-light")
+    .addClass("badge-success");
   currentTask.innerHTML = `Selecione o Ponto ${points.length + 1} do(a) ${
     shape.type
   }`;
+};
+
+const selectButton = button => {
+  $(`#${button}`)
+    .removeClass("btn-outline-dark")
+    .addClass("btn-dark");
+};
+
+const unselectButton = button => {
+  $(`#${button}`)
+    .removeClass("btn-dark")
+    .addClass("btn-outline-dark");
 };
 
 const endDrawing = () => {
@@ -25,29 +41,38 @@ const endDrawing = () => {
   shape = undefined;
   canvas.style.cursor = "default";
   currentTask.innerHTML = `Selecione a ferramenta a ser usada`;
+
+  $("#currentTask")
+    .removeClass("badge-dark")
+    .addClass("badge-light");
+
+  unselectButton("rectButton");
+  unselectButton("circleButton");
+  unselectButton("lineButton");
+  unselectButton("triangleButton");
 };
 
 const makeRect = () => {
   shape = new Rectangle(p0, p0, canvasCtx);
-  initDrawing();
+  initDrawing("rectButton");
   pointsNeeded = 2;
 };
 
 const makeTriangle = () => {
   shape = new Triangle(p0, p0, p0, canvasCtx);
-  initDrawing();
+  initDrawing("triangleButton");
   pointsNeeded = 3;
 };
 
 const makeLine = () => {
   shape = new Line(p0, p0, canvasCtx);
-  initDrawing();
+  initDrawing("lineButton");
   pointsNeeded = 2;
 };
 
 const makeCircle = () => {
   shape = new Circle(p0, p0, canvasCtx);
-  initDrawing();
+  initDrawing("circleButton");
   pointsNeeded = 2;
 };
 
