@@ -1,5 +1,5 @@
 class TranslationCommand {
-  constructor({ x, y }, needsCalc = true) {
+  constructor([{ x, y }], needsCalc = true) {
     this.x = x;
     this.y = y;
     this.objects = Object.entries(state.selected);

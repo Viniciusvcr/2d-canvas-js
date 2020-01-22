@@ -22,8 +22,9 @@ let ID = 0;
 
 // Transformations
 const transformations = {
-  Translation: { Command: TranslationCommand, needsPoints: true },
-  Scale: { Command: ScaleCommand, needsPoints: false }
+  Translação: { Command: TranslationCommand, needsPoints: true, qntd: 1 },
+  Scale: { Command: ScaleCommand, needsPoints: false },
+  Zoom: { Command: ZoomCommand, needsPoints: true, qntd: 2 }
 };
 
 // Buttons

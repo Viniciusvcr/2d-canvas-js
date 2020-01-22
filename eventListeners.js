@@ -47,7 +47,7 @@ const endDrawing = () => {
   currentTask.innerHTML = `Selecione a ferramenta a ser usada`;
 
   $("#currentTask")
-    .removeClass("badge-dark")
+    .removeClass("badge-success")
     .addClass("badge-light");
 
   unselectButton("rectButton");
@@ -83,24 +83,31 @@ const makeCircle = () => {
 const initTransformation = operation => {
   transforming = true;
   canvas.style.cursor = "crosshair";
-  currentTask.innerHTML = `Selecione o ponto de translação`;
   transformation = operation;
+  $("#currentTask")
+    .removeClass("badge-light")
+    .addClass("badge-success");
+  currentTask.innerHTML = `Selecione o Ponto ${points.length +
+    1} para o(a) ${transformation}`;
 };
 
 const endTransformation = () => {
   transforming = false;
   transformation = undefined;
+  points = [];
   canvas.style.cursor = "default";
   currentTask.innerHTML = `Selecione a ferramenta a ser usada`;
+  $("#currentTask")
+    .removeClass("badge-success")
+    .addClass("badge-light");
 };
 
 const translate = () => {
   if (Object.keys(state.selected).length > 0) {
-    initTransformation();
+    initTransformation("Translação");
   } else {
     alert("Não há formas selecionadas!");
   }
-  transformation = "Translation";
 };
 
 const scale = () => {
@@ -175,6 +182,10 @@ const zoomExt = () => {
   );
 };
 
+const zoom = () => {
+  initTransformation("Zoom");
+};
+
 // Canvas EventListeners
 canvas.addEventListener("mousemove", e => writeAxisLabels(e));
 canvas.addEventListener("click", e => {
@@ -196,17 +207,19 @@ canvas.addEventListener("click", e => {
 });
 canvas.addEventListener("click", e => {
   if (transforming) {
-    const { Command, needsPoints } = transformations[transformation];
+    const { Command, needsPoints, qntd } = transformations[transformation];
     if (needsPoints) {
-      const newPoint = createPoint(e);
+      points.push(createPoint(e));
+      currentTask.innerHTML = `Selecione o Ponto ${points.length +
+        1} para o(a) ${transformation}`;
 
-      operation.executeCommand(new Command(newPoint));
+      if (points.length === qntd) {
+        operation.executeCommand(new Command(points));
+        endTransformation();
+      }
     } else {
       operation.executeCommand(new Command());
     }
-
-    canvas.style.cursor = "default";
-    endTransformation();
   }
 });
 
@@ -253,6 +266,10 @@ rotationButton.addEventListener("click", () => {
 
 zoomExtButton.addEventListener("click", () => {
   zoomExt();
+});
+
+zoomButton.addEventListener("click", () => {
+  zoom();
 });
 
 selectAllButton.addEventListener("click", () => {
@@ -322,10 +339,15 @@ const acceptedKeys = {
 
   Escape() {
     endDrawing();
+    endTransformation();
   },
 
   A() {
     selectAll();
+  },
+
+  Z() {
+    zoom();
   }
 };
 

@@ -75,7 +75,7 @@ class ZoomExtentCommand {
     }
 
     new TranslationCommand(
-      new Point(-this.centerH, -this.centerV),
+      [new Point(-this.centerH, -this.centerV)],
       false
     ).execute();
 

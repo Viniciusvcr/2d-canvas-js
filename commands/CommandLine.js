@@ -92,3 +92,9 @@ function unselectAll() {
     ? "Não há objetos para serem deselecionados"
     : "Todos os objetos foram deselecionados";
 }
+
+function aplicar_zoom(x1, y1, x2, y2) {
+  operation.executeCommand(
+    new ZoomCommand([new Point(x1, y1), new Point(x2, y2)])
+  );
+}
