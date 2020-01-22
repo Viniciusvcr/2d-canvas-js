@@ -41,9 +41,11 @@ function desenhar_reta(x1, y1, x2, y2) {
 function desenhar_retangulo(x1, y1, x2, y2) {
   p1 = new Point(x1, y1);
   p2 = new Point(x2, y2);
-  operation.executeCommand(
-    new DrawObjectCommand(new Rectangle(this.p1, this.p2, canvasCtx))
-  );
+
+  const rectangle = new Rectangle(this.p1, this.p2, canvasCtx);
+  rectangle.setPoints([this.p1, this.p2]);
+
+  operation.executeCommand(new DrawObjectCommand(rectangle));
 }
 
 function transladar(x1, x2) {
