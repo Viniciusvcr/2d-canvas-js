@@ -74,8 +74,10 @@ class ZoomExtentCommand {
       selectCommand.execute();
     }
 
-    // FIXME
-    new TranslationCommand(new Point(-this.centerH, -this.centerV)).execute();
+    new TranslationCommand(
+      new Point(-this.centerH, -this.centerV),
+      false
+    ).execute();
 
     for (const selectCommand of selectCommands) {
       selectCommand.undo();
