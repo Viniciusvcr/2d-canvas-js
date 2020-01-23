@@ -49,10 +49,10 @@ function desenhar_retangulo(x1, y1, x2, y2) {
 }
 
 function transladar(x1, x2) {
-  const newPoint = new Point(x1, x2);
-  for (const obj of Object.values(state.selected)) {
-    operation.executeCommand(new TranslationCommand(newPoint));
-  }
+  if (Object.values(state.selected).length > 0) {
+    const newPoint = new Point(x1, x2);
+    operation.executeCommand(new TranslationCommand([newPoint]));
+  } else return "Não há objetos selecionados";
 }
 
 function escala(sx, sy) {
@@ -61,7 +61,7 @@ function escala(sx, sy) {
   } else return "Selecione objetos para mudar a escala";
 }
 
-function rotacao(theta, x = undefined, y = undefined) {
+function rotacao(theta, x, y) {
   if (Object.values(state.selected).length > 0) {
     operation.executeCommand(new RotationCommand(theta, x, y));
   } else return "Selecione objetos para rotacionar";
