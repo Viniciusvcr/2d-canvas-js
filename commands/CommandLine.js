@@ -76,6 +76,8 @@ function selectAll() {
     new SelectCommand(id, obj).execute();
   }
 
+  updateObjTable();
+
   return Object.values(state.onCanvas).length === 0
     ? "Não há objetos para serem selecionados"
     : "Todos os objetos foram selecionados";
@@ -87,6 +89,8 @@ function unselectAll() {
   for (const obj of Object.values(state.onCanvas)) {
     obj.selected = false;
   }
+
+  updateObjTable();
 
   state.selected = {};
 

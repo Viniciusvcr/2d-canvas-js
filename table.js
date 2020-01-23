@@ -2,16 +2,18 @@ function addTableLine(id, obj) {
   const newTr = document.createElement("tr");
   const newTd = document.createElement("td");
 
-  newTd.innerHTML = obj.shape.type;
+  newTd.innerHTML = `${obj.shape.type} (ID: ${id})`;
   newTr.style.cursor = "pointer";
 
   let clicked;
   if (obj.selected) {
     clicked = true;
     newTr.style.backgroundColor = SELECTED_COLOR;
+    newTd.style.color = "white";
   } else {
     clicked = false;
     newTr.style.backgroundColor = "";
+    newTd.style.color = "black";
   }
 
   newTr.appendChild(newTd);
@@ -22,11 +24,19 @@ function addTableLine(id, obj) {
       selectCommand.execute();
       clicked = true;
       newTr.style.backgroundColor = SELECTED_COLOR;
+      newTd.style.color = "white";
     } else {
       selectCommand.undo();
       clicked = false;
       newTr.style.backgroundColor = "";
+      newTd.style.color = "black";
     }
+  });
+  newTr.addEventListener("mouseenter", () => {
+    if (!clicked) state.onCanvas[id].selected = true;
+  });
+  newTr.addEventListener("mouseleave", () => {
+    if (!clicked) state.onCanvas[id].selected = false;
   });
 
   objTable.appendChild(newTr);
