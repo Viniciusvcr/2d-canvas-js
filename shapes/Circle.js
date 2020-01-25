@@ -10,6 +10,9 @@ class Circle extends Shape {
     this._radius = Math.sqrt(
       Math.pow(p2.x - p1.x, 2) + Math.pow(p2.y - p1.y, 2)
     );
+    this._p3 = new Point(this.p1.x - this.radius, this.p1.y);
+    this._p4 = new Point(this.p1.x, this.p1.y + this.radius);
+    this._p5 = new Point(this.p1.x, this.p1.y - this.radius);
     this._type = "Círculo";
   }
 
@@ -20,7 +23,10 @@ class Circle extends Shape {
     this.p1 = arrayOfPoints[0];
     this.p2 = arrayOfPoints[1];
     this.radius = [this.p1, this.p2];
-    this.points = arrayOfPoints;
+    this.p3 = new Point(this.p1.x - this.radius, this.p1.y);
+    this.p4 = new Point(this.p1.x, this.p1.y + this.radius);
+    this.p5 = new Point(this.p1.x, this.p1.y - this.radius);
+    this.points = [...arrayOfPoints, this.p3, this.p4, this.p5];
   }
 
   /**
@@ -56,6 +62,48 @@ class Circle extends Shape {
    */
   set p2(p2) {
     this._p2 = p2;
+  }
+
+  /**
+   * @returns {Point}
+   */
+  get p3() {
+    return this._p3;
+  }
+
+  /**
+   * @param {Point} p3
+   */
+  set p3(p3) {
+    this._p3 = p3;
+  }
+
+  /**
+   * @returns {Point}
+   */
+  get p4() {
+    return this._p4;
+  }
+
+  /**
+   * @param {Point} p4
+   */
+  set p4(p4) {
+    this._p4 = p4;
+  }
+
+  /**
+   * @returns {Point}
+   */
+  get p5() {
+    return this._p5;
+  }
+
+  /**
+   * @param {Point} p5
+   */
+  set p5(p5) {
+    this._p5 = p5;
   }
 
   /**

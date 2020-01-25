@@ -25,12 +25,12 @@ Repositório usado no trabalho de Computação Gráfica - CC UEM 2019
     - [x] Zoom Extent
         - [x] Centralizar
         - [x] Aspect Ratio
-- [ ] IHC
+- [x] IHC
     - [x] Feedback
     - [x] Cursor
     - [x] C. Cursor
     - [x] Dest. Sel
-    - [ ] Ajuda
+    - [x] Ajuda
     - [x] Undo
     - [x] Redo
     - [x] Linha de Comando

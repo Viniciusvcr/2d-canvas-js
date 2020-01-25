@@ -36,7 +36,7 @@ function getCoordinatesForObject(matrix, start, type) {
   let qntd = 0;
 
   if (type === "Círculo") {
-    qntd = 2;
+    qntd = 5;
   } else if (type === "Linha") {
     qntd = 2;
   } else if (type === "Retângulo") {

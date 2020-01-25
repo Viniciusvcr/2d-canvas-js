@@ -24,9 +24,10 @@ function desenhar_circulo(x1, y1, x2, y2) {
   p1 = new Point(x1, y1);
   p2 = new Point(x2, y2);
 
-  operation.executeCommand(
-    new DrawObjectCommand(new Circle(this.p1, this.p2, canvasCtx))
-  );
+  const circle = new Circle(this.p1, this.p2, canvasCtx);
+  circle.setPoints([this.p1, this.p2]);
+
+  operation.executeCommand(new DrawObjectCommand(circle));
 }
 
 function desenhar_reta(x1, y1, x2, y2) {
