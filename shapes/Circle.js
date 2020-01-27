@@ -23,10 +23,11 @@ class Circle extends Shape {
     this.p1 = arrayOfPoints[0];
     this.p2 = arrayOfPoints[1];
     this.radius = [this.p1, this.p2];
+    this.p2 = new Point(this.p1.x + this.radius, this.p1.y);
     this.p3 = new Point(this.p1.x - this.radius, this.p1.y);
     this.p4 = new Point(this.p1.x, this.p1.y + this.radius);
     this.p5 = new Point(this.p1.x, this.p1.y - this.radius);
-    this.points = [...arrayOfPoints, this.p3, this.p4, this.p5];
+    this.points = [this.p1, this.p2, this.p3, this.p4, this.p5];
   }
 
   /**
