@@ -4,7 +4,19 @@ const currentTask = document.getElementById("currentTask");
 const canvasCtx = canvas.getContext("2d");
 let state = {
   onCanvas: {},
-  selected: {}
+  selected: {},
+  axis: [
+    new Line(new Point(10, 10), new Point(10, 280), canvasCtx), // Eixo Y
+    new Line(new Point(10, 10), new Point(280, 10), canvasCtx), // Eixo X
+    new Line(new Point(10, 280), new Point(5, 275), canvasCtx), // Seta Y
+    new Line(new Point(10, 280), new Point(15, 275), canvasCtx), // Seta Y
+    new Line(new Point(280, 10), new Point(275, 5), canvasCtx), // Seta X
+    new Line(new Point(280, 10), new Point(275, 15), canvasCtx), // Seta X
+    new Line(new Point(265, 20), new Point(270, 15), canvasCtx), // X
+    new Line(new Point(270, 20), new Point(265, 15), canvasCtx), // X
+    new Line(new Point(20, 262), new Point(15, 270), canvasCtx), // Y
+    new Line(new Point(15, 262), new Point(17, 266), canvasCtx) // Y
+  ]
 };
 const operation = new Operation();
 const p0 = new Point(0, 0);
@@ -64,6 +76,11 @@ function render() {
       canvasCtx.strokeStyle = SHAPE_COLOR;
     }
     obj.shape.draw();
+  }
+
+  canvasCtx.strokeStyle = SHAPE_COLOR;
+  for (const line of state.axis) {
+    line.draw();
   }
 
   requestAnimationFrame(render);
