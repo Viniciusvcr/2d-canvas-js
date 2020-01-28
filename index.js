@@ -22,6 +22,7 @@ const operation = new Operation();
 const p0 = new Point(0, 0);
 const SHAPE_COLOR = "black";
 const SELECTED_COLOR = "#D50000";
+const AXIS_COLOR = "#000000";
 
 // Variables
 let drawing = false;
@@ -78,8 +79,10 @@ function render() {
     obj.shape.draw();
   }
 
-  canvasCtx.strokeStyle = SHAPE_COLOR;
+  canvasCtx.strokeStyle = AXIS_COLOR;
   for (const line of state.axis) {
+    line.draw();
+    line.draw();
     line.draw();
   }
 
