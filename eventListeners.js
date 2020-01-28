@@ -44,7 +44,7 @@ const endDrawing = () => {
   points = [];
   shape = undefined;
   canvas.style.cursor = "default";
-  currentTask.innerHTML = `Selecione a ferramenta a ser usada`;
+  currentTask.innerHTML = `Selecione acima a ferramenta a ser usada`;
 
   $("#currentTask")
     .removeClass("badge-success")
@@ -96,7 +96,7 @@ const endTransformation = () => {
   transformation = undefined;
   points = [];
   canvas.style.cursor = "default";
-  currentTask.innerHTML = `Selecione a ferramenta a ser usada`;
+  currentTask.innerHTML = `Selecione acima a ferramenta a ser usada`;
   $("#currentTask")
     .removeClass("badge-success")
     .addClass("badge-light");
