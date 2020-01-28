@@ -49,10 +49,12 @@ function desenhar_retangulo(x1, y1, x2, y2) {
   operation.executeCommand(new DrawObjectCommand(rectangle));
 }
 
-function transladar(x1, x2) {
+function transladar(x1, y1, x2, y2) {
   if (Object.values(state.selected).length > 0) {
-    const newPoint = new Point(x1, x2);
-    operation.executeCommand(new TranslationCommand([newPoint]));
+    const p1 = new Point(x1, y1);
+    const p2 = new Point(x2, y2);
+
+    operation.executeCommand(new TranslationCommand([p1, p2]));
   } else return "Não há objetos selecionados";
 }
 

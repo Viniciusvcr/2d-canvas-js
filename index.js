@@ -35,7 +35,7 @@ let ID = 0;
 
 // Transformations
 const transformations = {
-  Translação: { Command: TranslationCommand, needsPoints: true, qntd: 1 },
+  Translação: { Command: TranslationCommand, needsPoints: true, qntd: 2 },
   Scale: { Command: ScaleCommand, needsPoints: false },
   Zoom: { Command: ZoomCommand, needsPoints: true, qntd: 2 }
 };

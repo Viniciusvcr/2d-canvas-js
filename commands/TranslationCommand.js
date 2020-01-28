@@ -1,15 +1,13 @@
 class TranslationCommand {
-  constructor([{ x, y }], needsCalc = true) {
-    this.x = x;
-    this.y = y;
+  constructor([p1, p2 = { x: undefined, y: undefined }], needsCalc = true) {
+    this.x1 = p1.x;
+    this.y1 = p1.y;
+    this.x2 = p2.x;
+    this.y2 = p2.y;
     this.objects = Object.entries(state.selected);
     this.previousCoordinates = [];
-    this.dx = needsCalc
-      ? this.x - this.objects[0][1].shape.points[0].x
-      : this.x;
-    this.dy = needsCalc
-      ? this.y - this.objects[0][1].shape.points[0].y
-      : this.y;
+    this.dx = needsCalc ? this.x2 - this.x1 : this.x1;
+    this.dy = needsCalc ? this.y2 - this.y1 : this.y1;
   }
 
   execute() {
