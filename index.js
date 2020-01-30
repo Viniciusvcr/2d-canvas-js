@@ -85,6 +85,7 @@ function render() {
     line.draw();
     line.draw();
   }
+  canvasCtx.fillText("(0,0)", 15, 23);
 
   requestAnimationFrame(render);
 }

@@ -70,7 +70,7 @@ function rotacao(theta, x, y) {
   } else return "Selecione objetos para rotacionar";
 }
 
-function zoom_extent() {
+function zoom_extend() {
   zoomExt();
 }
 
