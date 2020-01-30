@@ -1,52 +1,10 @@
 # 2d-canvas-js
 Repositório usado no trabalho de Computação Gráfica - CC UEM 2019
 
+## Desenvolvimento
 
-# TODO
-
-- [x] Desenhos
-    - [x] Reta
-    - [x] Triângulo
-    - [x] Quadrado
-    - [x] Circulo
-    - [x] Locar Eixos
-    - [x] P. Criação
-- [x] Seleção de Objetos
-    - [x] Múltiplos Objetos
-    - [x] Único Objeto
-- [x] Operações
-    - [x] Clear
-    - [x] Translação
-    - [x] Escala
-    - [x] Rotação
-    - [x] Zoom
-        - [x] Janela
-        - [x] Aspect Ratio
-    - [x] Zoom Extent
-        - [x] Centralizar
-        - [x] Aspect Ratio
-- [x] IHC
-    - [x] Feedback
-    - [x] Cursor
-    - [x] C. Cursor
-    - [x] Dest. Sel
-    - [x] Ajuda
-    - [x] Undo
-    - [x] Redo
-    - [x] Linha de Comando
-        - [x] Translação
-        - [x] Escala
-        - [x] Rotação
-        - [x] Zoom
-        - [x] Zoom Extent
-        - [x] Clear
-        - [x] Undo
-        - [x] Redo
-        - [x] Reta
-        - [x] Triângulo
-        - [x] Quadrado
-        - [x] Circulo
-
+- Sandro Henrique Uliana Catabriga (RA 98397)
+- Vinícius da Costa Regatieri (RA 104016)
 
 ## Ajuda ao usuário
 
@@ -94,3 +52,49 @@ Repositório usado no trabalho de Computação Gráfica - CC UEM 2019
 | transladar(x, y)                           | x: X do destino da translação<br>y: Y do destino da translação                                                                                               | Translada os objetos previamente selecionados para o ponto (x, y)                                           |
 | escala(sx, sy)                             | sx: Escala em X<br>sy: Escala em Y                                                                                                                           | Faz uma operação de mudança de escala (sx, sy) nos objetos selecionados                                     |
 | rotacao(theta, x, y)                       | theta: Ângulo (em graus) da rotação<br>x: X do ponto de referência da rotação<br>y: Y do ponto de referência da rotação                                      | Faz uma operação de rotação com theta graus, em torno do ponto (x, y)                                       |
+
+
+# TODO
+
+- [x] Desenhos
+    - [x] Reta
+    - [x] Triângulo
+    - [x] Quadrado
+    - [x] Circulo
+    - [x] Locar Eixos
+    - [x] P. Criação
+- [x] Seleção de Objetos
+    - [x] Múltiplos Objetos
+    - [x] Único Objeto
+- [x] Operações
+    - [x] Clear
+    - [x] Translação
+    - [x] Escala
+    - [x] Rotação
+    - [x] Zoom
+        - [x] Janela
+        - [x] Aspect Ratio
+    - [x] Zoom Extent
+        - [x] Centralizar
+        - [x] Aspect Ratio
+- [x] IHC
+    - [x] Feedback
+    - [x] Cursor
+    - [x] C. Cursor
+    - [x] Dest. Sel
+    - [x] Ajuda
+    - [x] Undo
+    - [x] Redo
+    - [x] Linha de Comando
+        - [x] Translação
+        - [x] Escala
+        - [x] Rotação
+        - [x] Zoom
+        - [x] Zoom Extent
+        - [x] Clear
+        - [x] Undo
+        - [x] Redo
+        - [x] Reta
+        - [x] Triângulo
+        - [x] Quadrado
+        - [x] Circulo
